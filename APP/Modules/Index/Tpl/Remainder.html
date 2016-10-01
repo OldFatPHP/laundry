@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0 minimal-ui" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>我的余额</title>
+    <style>
+        body{
+            text-align:center;
+        }
+        .to-shopping{
+            text-align:right;
+            height:20px;
+            line-height:20px;
+            font-size:14px;
+        }
+        .to-shopping img{
+            height:13px;
+        }
+        a {
+            color: #8a8a8a;
+            text-decoration: none;
+        }
+        .remainder{
+            height:66px;
+            width:90px;
+            border-radius:50px;
+            background-color:#ff9900;
+            color:#fff;
+            margin-left:auto;
+            margin-right:auto;
+            text-align:center;
+            margin-top:10px;
+            margin-bottom:10px;
+            padding-top:25px;
+        }
+        .remainder h4{
+            font-weight:normal;
+            margin-bottom:5px;
+            margin-top:0px;
+        }
+        button{
+            border:1px solid #dcdcdc;
+            height:30px;
+            background-color:#fff;
+            color:#8a8a8a;
+            width:110px;
+            border-radius:5px;
+            outline:none;
+        }
+        hr {
+            border: none;
+            border-top: 1px solid #e8e8e8;
+            text-align: center;
+            margin-top:25px;
+            height:0px;
+            margin-bottom:-1px;
+        }
+
+            hr:after {
+                content: '余额明细';
+                position: relative;
+                top: -12px;
+                padding: 0 10px;
+                background: #fff;
+                color: #c1c1c1;
+                font-size: 14px;
+            }
+        .detail-div{
+            width:100%;
+            float:left;
+            border-bottom:1px solid #e8e8e8;
+            padding-top:15px;
+            padding-bottom:15px;
+            height:35px;
+        }
+        .date {
+            width: 15%;
+            font-size: 16px;
+            float: left;
+            color: #c1c1c1;
+        }
+        .date span{
+            font-size:13px;
+        }
+        .data {
+            width: 80%;
+            color: black;
+            float: left;
+            text-align: left;
+        }
+            .data img {
+                float: left;
+                width: 50px;
+                margin-top:-10px;
+                margin-right:10px;
+            }
+        .price{
+            width:auto;
+            float:right;
+            height:35px;
+            line-height:35px;
+        }
+        .float-left {
+            float: left;
+            height: 35px;
+            line-height: 35px;
+        }
+        .remainder span{
+            font-size:20px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div class="to-shopping">
+            <a href="Index.html">
+                <img src="images/trolley.png" />
+                <span>去下单</span>
+            </a>
+        </div>
+        <div class="remainder">
+            <h4>余额</h4>
+            <h4><span>0.00</span>元</h4>
+        </div>
+        <button onclick="window.location.href='Recharge.html'">去充值</button>
+    </div>
+    <hr />
+    <div class="detail-div">
+        <div class="date">
+            周日<br />
+            <span>08-28</span>
+        </div>
+        <div class="data">
+            <img src="images/goods9.png" />
+            <div class="float-left">袋洗</div>
+            <div class="price">-28.00</div>
+        </div>
+    </div>
+    <div class="detail-div">
+        <div class="date">
+            周日<br />
+            <span>08-28</span>
+        </div>
+        <div class="data">
+            <img src="images/goods9.png" />
+            <div class="float-left">袋洗</div>
+            <div class="price">-28.00</div>
+        </div>
+    </div>
+    <div class="detail-div">
+        <div class="date">
+            周日<br />
+            <span>08-28</span>
+        </div>
+        <div class="data">
+            <img src="images/goods9.png" />
+            <div class="float-left">袋洗</div>
+            <div class="price">-28.00</div>
+        </div>
+    </div>
+</body>
+</html>

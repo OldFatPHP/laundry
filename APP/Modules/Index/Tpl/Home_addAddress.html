@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0 minimal-ui" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>填写地址</title>
+    <script src="__PUBLIC__/js/PCASClass.js" charset="gb2312"></script>
+    <style>
+        /* 1. General */
+        body {
+            background-color: #F5F9FA;
+            overflow-x: hidden;
+            margin: 0px;
+            color: #1a1a1a;
+            font-family: "Microsoft YaHei", Times, serif;
+            text-align: center;
+            font-size: 15px;
+        }
+
+        .mainbody {
+            width: 100%;
+            padding-bottom: 60px;
+            text-align: center;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .addressdiv {
+            background-color: #fff;
+            margin-top: 0;
+            border-bottom: 1px solid #ededed;
+            margin-bottom: 10px;
+        }
+            .addressdiv select, .heightbg {
+                height: 50px;
+                border: none;
+                border-top: 1px solid #ededed;
+                outline: none;
+                line-height: 50px;
+                background-color: #fff;
+                text-align: left;
+                width: 100%;
+                text-indent: 20px;
+            }
+        select {
+            appearance: none;
+            -moz-appearance: none;
+            -webkit-appearance: none;
+            background: url("__PUBLIC__/images/xiala.png") no-repeat scroll transparent;
+            background-position:95% center;
+        }
+            select:nth-child(3) {
+                background-position: 97% center;
+            } 
+            .addressdiv select:nth-child(1), .addressdiv select:nth-child(2) {
+                width: 50%;
+                border-right: 1px solid #ededed;
+            }
+        textarea {
+            resize: none;
+        }
+        #phoneNum,#name {
+            border-bottom: 1px solid #ededed;
+        }
+        .btn{
+            border:none;
+            height:40px;
+            width:90%;
+            color:white;
+            background-color:#bbc1cc;
+            border-radius:10px;
+            margin-top:70px;
+            outline:none;
+            font-size:15px;
+        }
+    </style>
+    <script>
+        function test() {
+            var province = document.getElementById("province").value;
+            var city = document.getElementById("city").value;
+            var area = document.getElementById("area").value;
+            var position = document.getElementById("position").value;
+            var name = document.getElementById("name").value;
+            var phoneNum = document.getElementById("phoneNum").value;
+            if (province.length > 0 && city.length > 0 && area.length > 0 && position.length > 0 && name.length > 0 && phoneNum.length > 0) {
+                document.getElementById("savebtn").style.backgroundColor = "#00dbf5";
+                document.getElementById("savebtn").disabled = false;
+            }
+            else {
+                document.getElementById("savebtn").style.backgroundColor = "#bbc1cc";
+                document.getElementById("savebtn").disabled = true;
+            }
+        }
+        function save() {
+            var city = document.getElementById("city").value;
+            var province = document.getElementById("province").value;
+            var area = document.getElementById("area").value;
+            var position = document.getElementById("position").value;
+            var name = document.getElementById("name").value;
+            var phoneNum = document.getElementById("phoneNum").value;
+            var url = "addAdd.html?position=" + position + "&name=" + name +"&province=" + province + "&phoneNum=" + phoneNum + "&city=" + city + "&area=" + area;
+            window.open(encodeURI(url));
+            // alert(encodeURI(url));
+        }
+    </script>
+    
+</head>
+<body onmouseover="test()">
+    <div class="mainbody">
+        <form>
+            <div class="addressdiv">
+                <select id="province" name="province"></select><select id="city" name="city"></select>
+                <select id="area" name="area"></select>
+                <script language="javascript" defer>
+                    //初始数据请在文档加载完成后动态处理，或者将设置的JS脚本放置到对应ID或Name元素的下方，否则引起报错;JS未做容错处理，请核实要设置的ID或NAME页面元素是否存在
+                    new PCAS("province", "city", "area", "请选择省份", "请选择城市", "请选择地区");
+                </script>
+                <textarea class="heightbg" id="position" placeholder="请输入街道/小区" onkeyup="test()"></textarea>
+            </div>
+            <input id="name" class="heightbg" type="text" placeholder="请输入姓名" onkeyup="test()"/>
+<!--             <div class="heightbg" style="margin-top:10px;">
+                <label for="women">女士</label><input type="radio" name="sex" id="women" checked="checked" />
+                <label for="man">男士</label><input type="radio" name="sex" id="man" />
+            </div> -->
+            <input id="phoneNum" type="tel" placeholder="手机号码" class="heightbg" onkeyup="test()" />
+            <input type="button" value="保存" id="savebtn" class="btn" disabled onclick="save()" />
+        </form>
+    </div>
+
+</body>
+</html>

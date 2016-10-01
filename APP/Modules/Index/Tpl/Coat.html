@@ -1,0 +1,55 @@
+﻿<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0 minimal-ui" />
+<link href="css/ServerDiv.css" rel="stylesheet" />
+<script src="js/buy.js"></script>
+
+<script>
+    window.onload = function () {
+        //还原按钮样式，改变被点击的按钮的样式
+        var Nav = document.getElementById('SecondNav').contentWindow;
+        Nav.document.getElementById("ClothesId1").className = "";
+        Nav.document.getElementById("ClothesId3").className = "";
+        Nav.document.getElementById("ClothesId4").className = "";
+        Nav.document.getElementById("ClothesId5").className = "";
+        Nav.document.getElementById("ClothesId2").className = "active";
+    };
+</script>
+
+<iframe src="SecondNav.html" frameborder="0" id="SecondNav" scrolling="no"></iframe>
+
+ <!--大衣外套-->
+<div id="coatDiv" class="window-div">
+    <div id="windowB1" class="show-window" onclick="buy(this.id)">
+        <div id="buyNumB1" class="buy-num">0</div>
+        <img src="images/goods10.png" id="goodsImgB1" />
+        <h4 id="goodsNameB1">冲锋衣（无内胆）</h4>
+        <h4 class="price"><span class="small-rmb">￥</span><span id="goodspriceB1">29.0</span></h4>
+    </div>
+    <div id="windowB2" class="show-window" onclick="buy(this.id)">
+        <div id="buyNumB2" class="buy-num">0</div>
+        <img src="images/goods10.png" id="goodsImgB2" />
+        <h4 id="goodsNameB2">冲锋衣（无内胆）</h4>
+        <h4 class="price"><span class="small-rmb">￥</span><span id="goodspriceB2">29.0</span></h4>
+    </div>
+
+    <div id="windowB3" class="show-window" onclick="buy(this.id)">
+        <div id="buyNumB3" class="buy-num">0</div>
+        <img src="images/goods10.png" id="goodsImgB3" />
+        <h4 id="goodsNameB3">冲锋衣（无内胆）</h4>
+        <h4 class="price"><span class="small-rmb">￥</span><span id="goodspriceB3">29.0</span></h4>
+    </div>
+
+    <div id="windowB4" class="show-window" onclick="buy(this.id)">
+        <div id="buyNumB4" class="buy-num">0</div>
+        <img src="images/goods10.png" id="goodsImgB4" />
+        <h4 id="goodsNameB4">冲锋衣（无内胆）</h4>
+        <h4 class="price"><span class="small-rmb">￥</span><span id="goodspriceB4">29.0</span></h4>
+    </div>
+
+    <div id="windowB5" class="show-window" onclick="buy(this.id)">
+        <div id="buyNumB5" class="buy-num">0</div>
+        <img src="images/goods10.png" id="goodsImgB5" />
+        <h4 id="goodsNameB5">冲锋衣（无内胆）</h4>
+        <h4 class="price"><span class="small-rmb">￥</span><span id="goodspriceB5">29.0</span></h4>
+    </div>
+
+</div>

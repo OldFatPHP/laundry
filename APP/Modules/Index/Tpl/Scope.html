@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0 minimal-ui" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <script src="js/jquery-2.0.0.min.js"></script>
+    <title>服务范围</title>
+    <script>
+        $(function () {
+
+            //模拟下拉框
+            $('.select #input_in').on('click', function () {
+                if ($('.select .city').is('.hide')) {
+                    $('.select .city').removeClass('hide');
+                } else {
+                    $('.select .city').addClass('hide');
+                }
+            })
+            $('.select ul li').on('click', function () {
+                $('.select #input_in').text($(this).html());
+                $('.select .city').addClass('hide');
+            })
+            $('.select ul li').on('mouseover', function () {
+                $(this).addClass('active');
+            })
+            $('.select ul li').on('mouseout', function () {
+                $(this).removeClass('active');
+            })
+        })
+    </script>
+
+    <style>
+        body{
+            margin:0;
+            padding:0;
+            width:100%;
+            font-size:13px;
+        }
+        .header {
+            background: url("images/Scopebg.png");
+            background-size: 100% 100%;
+            width: 100%;
+            height: 145px;
+        }
+    .scope-hearder {
+        width: 99%;
+        border-left: 4px solid #0e9dfd;
+        background-color: #eff5f8;
+        height: 30px;
+        font-size: 15px;
+        line-height: 30px;
+    }
+        .scope img{
+            width:100%;
+        }
+        #scope-data{
+            padding:10px;
+            line-height:18px;
+            color:#888888;
+        }
+        select {
+            appearance: none;
+            -moz-appearance: none;
+            -webkit-appearance: none;
+            background: url("/images/drop-down.png") no-repeat scroll right center transparent;
+            color: #5fbdfe;
+            height: 30px;
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: 20px;
+            width: 75px;
+            border: none;
+            background-color: #e8f5ff;
+            text-indent:10px;
+            font-size:16px;
+            outline:none;
+            margin-top:25px;
+        }
+        option{
+            background-color:#fff;
+        }
+
+
+    </style>
+    <script>
+        function changeLoction(x) {
+            var city = x.innerText;
+            if (city == "上海") {
+                document.getElementById("scope-data").innerText = "上海（中环以内，外环线以内全部区域，外环外浦江镇、周浦镇、奉贤镇、川沙镇、唐镇、顾路镇、曹路镇、龚路镇、七宝镇、宝山镇、嘉定开通）";
+                document.getElementById("map").src = "images/shanghaimap.png";
+            }
+            else if (city == "广州") {
+                document.getElementById("scope-data").innerText = "广州天河区（商业区）、越秀区（越秀全区）、海珠区（海珠全区）、荔湾区、白云区（白云中心区）、番禺区（市桥以北南村以西）、 从化区（从化中心区）、增城区（凤凰城碧桂园）、黄埔区）";
+                document.getElementById("map").src = "images/guangzhoumap.png";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="header">
+        
+        <select onchange="changeLoction(this)">
+            <option value="shanghai">上海</option>
+            <option value="guangzhou">广州</option>
+        </select>
+       
+    </div>
+    <div class="scope-hearder">具体服务范围</div>
+    <div class="scope">
+        <div id="scope-data">
+            上海（中环以内，外环线以内全部区域，外环外浦江镇、周浦镇、奉贤镇、川沙镇、唐镇、顾路镇、曹路镇、龚路镇、七宝镇、宝山镇、嘉定开通）
+        </div>
+        <img src="images/shanghaimap.png"id="map" />
+    </div>
+</body>
+</html>

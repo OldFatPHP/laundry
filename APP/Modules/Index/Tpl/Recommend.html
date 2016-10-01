@@ -1,0 +1,263 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0 minimal-ui" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>推荐有奖</title>
+    <style>
+        /* 1. General */
+        body {
+            background-color: #fff;
+            overflow-x: hidden;
+            margin: 0px;
+            color: #1a1a1a;
+            font-family: "Microsoft JhengHei ", Times, serif;
+            text-align: center;
+            font-size: 15px;
+        }
+
+        .mainbody {
+            width: 100%;
+            padding-bottom: 70px;
+            text-align: center;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+            .recommendPictrue img {
+                width: 100%;
+                margin-bottom:22px;
+            }
+        .letter-img{
+            float:left;width:28%;
+        }
+        .letter-img img{
+            width:60%;
+            margin-top:0px;
+        }
+        .letter-data{
+            padding-left:0px;
+            padding-top:20px;
+            float:left;
+            width:63%;
+            font-size:12px;
+           text-align:left;
+           color:black;
+        }
+        .btn-invite{
+            color:#fff;
+            font-size:25px;
+            background-color:#cb273c;
+            height:50px;
+            border:none;
+            outline:none;
+            width:65%;
+            border-radius:12px;
+            margin-top:100px;
+        }
+        .rule {
+            color: #cb273c;
+            text-decoration: underline;
+            font-size: 14px;
+            margin-top: 5px;
+            margin-bottom: 50px;
+        }
+        
+        .width-full {
+            width: 100%;
+            text-align: center;
+        } 
+        .transparent-div {
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            opacity: 0.5;
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: none;
+            overflow: hidden;
+        }
+        .QR-code {
+            position: fixed;
+            z-index: 95;
+            display: none;
+            background-color: #fff;
+            border-radius: 5px;
+            width: 76%;
+            top: 100px;
+            left: 12%;
+            padding: 30px 10px 0 10px;
+            max-width: 400px;
+        }
+        .or {
+            height: 1px;
+            background: #fff;
+            background-image: -webkit-linear-gradient(left, #fff, #777, #fff);
+            background-image: -moz-linear-gradient(left, #fff, #777, #fff);
+            background-image: -ms-linear-gradient(left, #fff, #777, #fff);
+            background-image: -o-linear-gradient(left, #fff, #777, #fff);
+            border:none;
+        }
+            .or:after {
+                content: 'or';
+                position: relative;
+                top: -13px;
+                padding: 0 10px;
+                background: #fff;
+                color: #ee5656;
+                font-size: 20px;
+                font-family: "FangSong_GB2312 ";
+            }
+        .QR-code img{
+            width:80%;
+            margin-top:20px;
+        }
+        .QR-code h5{
+            font-weight:normal;
+            margin-top:10px;
+            font-size:15px;
+        }
+        .daishu {
+            position: fixed;
+            z-index: 99;
+            top: 0;
+            width:45%;
+            display:none;
+            right:0;
+        }
+            .daishu img {
+                width: 100%;
+            }
+        .horizontal {
+            height: 1px;
+            background: #ccc;
+            text-align: center;
+            background-image: -webkit-linear-gradient(left, #fff, #777, #fff);
+            background-image: -moz-linear-gradient(left, #fff, #777, #fff);
+            background-image: -ms-linear-gradient(left, #fff, #777, #fff);
+            background-image: -o-linear-gradient(left, #fff, #777, #fff);
+            border:none;
+        }
+
+            .horizontal:after {
+                content: '邀请好友记录';
+                position: relative;
+                top: -10px;
+                background: #fff;
+                color: #bcbcbc;
+                font-size: 14px;
+
+            }
+        #rule {
+            position: fixed;
+            z-index: 95;
+            display: none;
+            background-color: #fff;
+            border-radius: 10px;
+            width: 74%;
+            top: 80px;
+            left: 8%;
+            padding: 0 20px 30px 20px;
+            max-width: 400px;
+            text-align:left;
+            font-size:15px;
+            display:none;
+        }
+        #rule div{
+            width:80%;
+            height:40px;
+            color:#fff;
+            background-color:#cb273c;
+            line-height:40px;
+            text-align:center;
+            margin-left:10%;
+            border-radius:4px;
+            margin-bottom:30px;
+        }
+            #rule button {
+                width: 50%;
+                height: 35px;
+                line-height: 35px;
+                color: #fff;
+                border: none;
+                background-color: #cb273c;
+                margin-left: 25%;
+                border-radius: 5px;
+                margin-top:15px;
+            }
+        #rule p{
+            margin-top:10px;
+            margin-bottom:10px;
+        }
+    </style>
+    <script>
+        var ifOpen = 0;
+        function Recommend() {
+            if (ifOpen == 0) {
+                document.getElementById("daishu").style.display = "block";
+                document.getElementById("QR-code").style.display = "block";
+                document.getElementById("transparent").style.display = "block";
+                ifOpen++;
+            }
+            else {
+                document.getElementById("daishu").style.display = "none";
+                document.getElementById("QR-code").style.display = "none";
+                document.getElementById("transparent").style.display = "none";
+                ifOpen--;
+            }
+            
+        }
+        function openRule() {
+            document.getElementById("transparent-rule").style.display = "block";
+            document.getElementById("rule").style.display = "block";
+
+        }
+        function closeRule() {
+            document.getElementById("transparent-rule").style.display = "none";
+            document.getElementById("rule").style.display = "none";
+        }
+    </script>
+</head>
+<body>
+    <div class="mainbody">
+        <div onclick="Recommend()">
+            <div class="recommendPictrue">
+                <img src="images/recommendPictrue.jpg" />
+            </div>
+            <div class="width-full" style="float:left;">
+                <div class="letter-img">
+                    <img src="images/letter.png" />
+                </div>
+                <div class="letter-data">
+                    Hi,e袋洗的老朋友，已为您备好邀请好友链接。现在邀请新朋友享受品质便捷洗衣服务，您可获得20元红包，多要多得，快快转发哦~
+                </div>
+            </div>
+            <div class="width-full"><button class="btn-invite">邀请好友</button></div>
+        </div>
+
+            <div class="rule"onclick="openRule()">优惠券&活动规则</div>
+        <hr class="horizontal"/>
+    </div>
+    <div id="transparent" class="transparent-div" onclick="Recommend()"></div>
+    <div id="QR-code" class="QR-code" onclick="Recommend()">
+        <h5>点击右上角分享到朋友圈</h5>
+        <hr class="or" />
+        <img src="images/QR-code.png" />
+        <h5>邀请好友扫描二维码各得20元优惠券</h5>
+    </div>
+    <div id="daishu" class="daishu" onclick="Recommend()">
+        <img src="images/daishu.png" />
+    </div>
+    <div id="transparent-rule" class="transparent-div"></div>
+    <div id="rule">
+        <div>优惠券及活动规则</div>
+        <p>1.红包领取成功后放入填写手机的账号中，在e袋洗个人中心中的优惠券中可以查看</p>
+        <p>2.红包在支付订单中使用，每个订单只能使用一个红包，不找零累计</p>
+        <p>3.红包在领取成功后请尽快使用，过期后红包会自动消失</p>
+        <p>4.本活动仅限于e洗袋开通服务的地区的用户参与</p>
+        <p>5.本活动的最终解释权归于e洗袋所有</p>
+        <button onclick="closeRule()">我知道了</button>
+    </div>
+</body>
+</html>

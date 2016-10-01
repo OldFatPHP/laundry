@@ -1,0 +1,192 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0 minimal-ui" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <script src="__PUBLIC__/js/jquery-2.0.0.min.js"></script>
+    <title>选择地址</title>
+   
+
+    <style>
+        /* 1. General */
+        body {
+            background-color: #f0f0f0;
+            overflow-x: hidden;
+            margin: 0px;
+            color: #1a1a1a;
+            font-family: "Microsoft YaHei", Times, serif;
+            text-align: left;
+            font-size: 18px;
+            line-height:28px;
+        }
+       
+        .add-address {
+            background-color: #fff;
+            text-align: center;
+            height: 40px;
+            z-index: 999;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            _position: absolute; /* for IE6 */
+            _top: expression(documentElement.scrollTop + documentElement.clientHeight-this.offsetHeight); /* for IE6 */
+            overflow: visible;
+            border-top: 1px solid #E6E6E6;
+            padding-top: 8px;
+        }
+        /*
+        table {
+            width: 100%;
+            background-color: #fff;
+            border-top: 1px solid #e6e6e6;
+            border-bottom: 1px solid #e6e6e6;
+            margin-bottom: 10px;
+        }
+         .radio {
+            width: 20px;
+            height: 20px;
+            border: 1px solid #c1c1c1;
+            border-radius: 50%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+       th{
+           width:50px;
+           text-align:center;
+           height:70px;
+       }
+       td{
+           font-size:14px;
+       }
+        th img {
+            width: 27px;
+            padding-left: 10px;
+            padding-top: 15px;
+            border-left: 1px solid #dcdcdc;
+        }*/
+        .bg-div {
+            width: 100%;
+            background-color: #fff;
+            padding: 10px 0;
+            margin-bottom: 10px;
+            border-top: 1px solid #fff;
+            border-bottom: 1px solid #fff;
+        }
+        .left-div {
+            width: 88%;
+            display: inline-block;
+            text-indent:20px;
+        }
+            .left-div span {
+                color: #ff6a00;
+                font-size:10px;
+                float:left;
+            }
+             .right-div {
+                width: 10%;
+                display: inline-block;
+            }
+        .right-div img{
+            width:30px;
+        }
+    </style>
+    <script>
+    /*
+    function choose(x) {
+        var num = x.substring(2);
+        var nametel = document.getElementById("nametel" + num).innerText;
+        var address = document.getElementById("address" + num).innerText;
+        window.location.href = encodeURI(encodeURI("Appointment.html?address=" + address + "&nametel=" + nametel));
+    }*/
+
+    $(function () {
+        //选择默认地址
+        $(".bg-div").on("click", function () {
+            $(".bg-div").css('border-bottom', '1px dashed #fff');
+            $(".bg-div").css('border-top', '1px dashed #fff');
+            $(".bg-div").css('color', 'black');
+            $(this).css('border-bottom', '1px dashed #ff6a00');
+            $(this).css('border-top', '1px dashed #ff6a00');
+            $(this).css('color', '#ff6a00');
+        })
+        $(".right-div img").on("click", function () {
+            $(this).parent().parent().remove();
+        })
+    })
+        /*
+    function GetQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]); return null;
+    }
+   
+
+    alert(GetQueryString("position"));
+    alert(decodeURI(GetQueryString("name")));
+    alert(GetQueryString("phoneNum"));
+    alert(decodeURI(GetQueryString("city")));
+    alert(decodeURI(GetQueryString("area")));
+    */
+    </script>
+</head>
+<body onload="GetRequest()">
+    <div class="mainbody">
+        <!--
+                <table>
+                    <tr>
+                        <th id="tr1"onclick="choose(this.id)">
+                            <div class="radio"></div>
+                        </th>
+                        <td id="td1" onclick="choose(this.id)">
+                            <div id="nametel1">Anna 15767979883</div>
+                            <div id="address1">惠州 东城区 惠州学院</div>
+                        </td>
+                        <th><img src="images/deleteAddress.png"onclick="window.location.href='ChangeAddress.html'" /></th>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <th id="tr2" onclick="choose(this.id)">
+                            <div class="radio"></div>
+                        </th>
+                        <td id="td2" onclick="choose(this.id)">
+                            <div id="nametel2">Anna 15767979883</div>
+                            <div id="address2">惠州 东城区 惠州学院</div>
+                        </td>
+                        <th><img src="images/deleteAddress.png" onclick="window.location.href='ChangeAddress.html'" /></th>
+                    </tr>
+                </table>
+        -->
+        <div class="bg-div">
+            <div class="left-div">
+                <div>Anna 15767979883</div>
+                <div id="ss">惠州 东城区 惠州学院</div>
+            </div>
+            <div class="right-div">
+                <img src="__PUBLIC__/images/deleteAddress.png" />
+            </div>
+        </div>
+
+        <div class="bg-div">
+            <div class="left-div">
+                <div>Anna 15767979883</div>
+                <div>惠州 东城区 惠州学院</div>
+            </div>
+            <div class="right-div">
+                <img src="__PUBLIC__/images/deleteAddress.png" />
+            </div>
+        </div>
+        <div class="bg-div">
+            <div class="left-div">
+                <div>Anna 15767979883</div>
+                <div>惠州 东城区 惠州学院</div>
+            </div>
+            <div class="right-div">
+                <img src="__PUBLIC__/images/deleteAddress.png" />
+            </div>
+        </div>
+        <div id="haha" class="add-address" onclick="window.location.href = 'http://localhost/laundry/index.php/Index/Order/changeAddress.html'">＋添加地址</div>
+    </div>
+</body>
+</html>

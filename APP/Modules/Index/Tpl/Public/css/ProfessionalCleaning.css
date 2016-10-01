@@ -1,0 +1,308 @@
+/* CSS Document */
+body{
+width:100%;
+background-color:#F5F9FA;
+padding:0;
+margin:0;
+font-family:"Microsoft YaHei", Times, serif;
+color:#1a1a1a;
+text-align:center;
+}
+.mainbody{
+width:100%;
+text-align:center;
+max-width:700px;
+margin-left:auto;
+margin-right:auto;
+}
+h1,h2,h3,h4,h5,h6{
+    margin:0;
+    font-weight:normal;
+    line-height:20px;
+}
+/* 一级菜单栏 CSS */
+ul{
+list-style:none;
+background-color:#fff;
+text-align:center;
+padding:0;
+margin:0;
+}
+.nav ul{
+height:40px;
+font-size:0; /* 用于消除inline-block间的空格 */
+border-bottom:1px solid #e9ebf3;
+-webkit-text-size-adjust:none;/* 用于消除inline-block间的空格 */
+
+}
+.nav li{
+display:inline-block;
+font-size:16px;
+padding:8px 0;
+margin:0;
+width:22%;
+cursor:default;
+}
+#textile,#luxury{
+    width:27%;
+
+}
+.nav .active{
+border-bottom:2px solid #40DDD1;
+color:#40DDD1;
+}
+#ServerDiv{
+width:100%;
+margin:0;
+padding:0;
+}
+
+/*服务内容*/
+.server-div{
+    background-color:#fff;
+    border-top:1px solid #e9ebf3;
+    border-bottom:1px solid #e9ebf3;
+    height:62px;
+    width:100%;
+    margin-top:15px;
+    float:left;
+    padding:10px 0;
+}
+.server{
+    width:33.3%;
+    float:left;
+    text-align:center;
+}
+.server img{
+    width:40px;
+}
+.server h5{
+    margin-top:8px;
+    font-weight:normal;
+}
+
+.footer{
+    width:100%;
+    text-align:center;
+    float:left;
+    margin-top:13px;
+    margin-bottom:100px;
+}
+.footer-border{
+    width:80%;
+    border:1px solid #e9ebf3;
+    height:90px;
+    margin-left:10%;
+    float:left;
+    padding:4px 6px 6px 4px;
+}
+.footer-bg{
+    background-color:#fff;
+    height:80px;
+    width:100%;
+    border:1px solid #e9ebf3;
+    float:left;
+    padding-top:10px;
+}
+.footer-bg h6{
+    font-weight:normal;
+    margin-bottom:0;
+    margin-top:0;
+    line-height:25px;
+}
+.footer-bg h6 a{
+    text-decoration:none;
+    color:#40DDD1;
+}
+/*预约取件*/
+.orderDiv{
+    z-index:999;
+    position:fixed; 
+    bottom:0;
+    width:100%;
+    left:0; 
+    _position:absolute; /* for IE6 */  
+    _top: expression(documentElement.scrollTop + documentElement.clientHeight-this.offsetHeight); /* for IE6 */ 
+    overflow:visible;
+    display:none;
+}
+#primary-orderDiv{
+    background-color:#40DDD1;
+    opacity:0.8;
+    height:80px;
+}
+#buy-orderDiv{
+    background-color:#fff;
+    height:100px;
+}
+#buy-orderDiv .tip{
+    border-top:1px solid #e5eeff;
+    border-bottom:1px solid #e5eeff;
+    font-size:14px;
+    padding-top:5px;
+    padding-bottom:5px;
+    background-color:#fcefd6;
+}
+.basket{
+    width:55px;
+    margin-top:13px;
+    margin-left:20px;
+    float:left;
+}
+.buy-num{
+    background-color:#f02b2b;
+    position:absolute;
+    width:16px;
+    height:16px;
+    font-size:12px;
+    border-radius:8px;
+    color:#fff;
+    display:none;
+    margin-left:24%;
+    margin-top:20px;
+}
+.basket .buy-num{
+    margin-top:0px;
+    margin-left:42px;
+}
+.basket img{
+    width:100%;
+}
+
+.primary-order h2{
+    margin-top:13px;text-align:center;
+    width:100%;
+    height:100%;
+    color:#fff;
+}
+#orderbtn2{
+    height:80px;
+    line-height:80px;
+    width:100px;
+    background-color:#40DDD1;
+    opacity:0.8;
+    z-index:10000;
+    float:right;
+    padding-top:4px;
+    font-size:13px;
+}
+#totalPrice{
+    font-size:18px;
+}
+.estimated-price-div{
+    float: right; 
+    padding-top: 8px; 
+    font-size: 14px; 
+    margin-right:10px;
+    text-align: right;
+}
+.estimated-price{
+    vertical-align: bottom; 
+    color: #f02b45;
+    font-size:14px;
+    margin-bottom:3px;
+}
+
+
+
+  /*价格预估详情模块*/
+  #estimateBg{
+      width:100%;
+      height:100%;
+      position:fixed;
+      max-width:700px;
+      top:0;
+      z-index:99;
+      background-color:black;
+      opacity:0.6;
+  }
+  #estimateDiv{
+      height:90%;
+      width:100%;
+      position:fixed;
+      max-width:700px;
+      top:10%;
+      z-index:100;
+      background-color:#fff;
+  }
+  .estimate-header{
+      border-top:1px solid #e9ebf3;
+      border-bottom:1px solid #e9ebf3;
+      padding:12px 18px;
+      font-size:18px;
+  }
+ #list{
+      width:95%;
+      max-width:600px;
+      font-size:14px;
+      border-collapse:collapse;
+  }
+
+#list th{
+      width:10%;
+  }
+#list th div{
+    background-color:#00dbf5;
+    color:#fff;
+    width:22px;
+    height:22px;
+    line-height:22px;
+    border-radius:11px;
+    margin-left:23%;
+}
+#list tr:nth-child(1) td{
+    border:none;
+}
+#list td{
+      border-top:1px solid #e9ebf3;
+      padding-top:12px;
+      padding-bottom:12px;
+      text-align:left;
+      width:17%;
+  }
+#list tr td:nth-child(3){
+    width:20%;
+    max-width:100px;
+}
+#list tr td:nth-child(4) span:nth-child(1){
+    font-size:10px;
+    color:#f02b2b;
+}
+list tr td:nth-child(5){
+    width:30%;
+}
+#list tr td:nth-child(4) span:nth-child(2){
+    font-size:15px;
+    color:#f02b2b;
+    margin-left:5px;
+}
+.btn-num{
+    border:1px solid #e9ebf3;
+    float:right;
+    border-radius:4px;
+    width:100%;
+}
+.btn-num div:nth-child(2n+1){
+    color:#40DDD1;
+    font-size:25px;
+    height:25px;
+    line-height:25px;
+    float:left;
+    width:31%;
+    text-align:center;
+}
+.btn-num div:nth-child(2n){
+    font-size:14px;
+    color:#1a1a1a;
+    border-left:1px solid #e9ebf3;
+    border-right:1px solid #e9ebf3;
+    float:left;
+    height:25px;
+    text-align:center;
+    width:31%;
+    line-height:25px;
+}
+#list td img{
+      width:85%;
+      border:1px solid #e9ebf3;
+  }

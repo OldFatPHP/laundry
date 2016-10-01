@@ -1,0 +1,89 @@
+﻿
+<style>
+    /*二级菜单*/
+    .nav-clothes ul {
+        font-size: 8px; /* 用于减小inline-block间的空格 */
+        padding: 0;
+        -webkit-text-size-adjust: none; /* 用于减小inline-block间的空格 */
+        padding-bottom: 12px;
+        border-bottom: 1px solid #e9ebf3;
+        text-align: center;
+        margin-bottom: 0;
+       
+    }
+
+    .nav-clothes li {
+        display: inline-block;
+        font-size: 12px;
+        width: 15%;
+        border: 1px solid #cccccc;
+        text-align: center;
+        height: 30px;
+        line-height: 30px;
+        border-radius: 14px;
+        cursor: default;
+    }
+
+    #ClothesId2, #ClothesId3 {
+        width: 21%;
+    }
+
+    .nav-clothes .active {
+        color: #fff;
+        background-color: #40DDD1;
+        border: 1px solid #40DDD1;
+    }
+
+    #ClothesDiv {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+</style>
+<script>
+    function navClick2(x) {
+        if (x == "ClothesId1") {
+            window.parent.window.location.href = "TopClothes.html";
+        }
+        else if (x == "ClothesId2") {
+            window.parent.window.location.href = "Coat.html";
+
+        }
+        else if (x == "ClothesId3") {
+            window.parent.window.location.href = "FooterClothes.html";
+
+        }
+        else if (x == "ClothesId4") {
+            window.parent.window.location.href = "Parts.html";
+            document.getElementById("ClothesDiv").src = "Parts.html";
+
+        }
+        else if (x == "ClothesId5") {
+            window.parent.window.location.href = "HotGoods.html";
+            document.getElementById("ClothesDiv").src = "HotGoods.html";
+
+        }
+    }
+    function setIframeHeight(iframe) {//网页自适应
+        if (iframe) {
+            var iframeWin = iframe.contentWindow || iframe.contentDocument.parentWindow;
+            if (iframeWin.document.body) {
+                iframe.height = iframeWin.document.documentElement.scrollHeight || iframeWin.document.body.scrollHeight;
+            }
+        }
+    };
+
+    window.onload = function () {
+        setIframeHeight(document.getElementById('ClothesDiv'));
+    };
+
+</script>
+<div class="nav-clothes">
+    <ul>
+        <li id="ClothesId1" class="active" onclick="navClick2(this.id);">上衣</li>
+        <li id="ClothesId2" onclick="navClick2(this.id);">大衣外套</li>
+        <li id="ClothesId3" onclick="navClick2(this.id);">裤装裙装</li>
+        <li id="ClothesId4" onclick="navClick2(this.id);">配件</li>
+        <li id="ClothesId5" onclick="navClick2(this.id);">爆品</li>
+    </ul>
+</div>

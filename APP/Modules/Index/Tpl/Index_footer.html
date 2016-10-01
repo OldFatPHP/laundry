@@ -1,0 +1,92 @@
+﻿
+    <style>
+        /*<!--底部菜单栏-->*/
+        #bottomNav {
+            background-color: #fff;
+            height: 40px;
+            z-index: 999;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            _position: absolute; /* for IE6 */
+            _top: expression(documentElement.scrollTop + documentElement.clientHeight-this.offsetHeight); /* for IE6 */
+            overflow: visible;
+            border-top: 1px solid #E6E6E6;
+            padding-top: 8px;
+        }
+
+            #bottomNav .nav {
+                text-align: center;
+                width: 33.3%;
+                float: left;
+                color: #808080;
+            }
+
+                #bottomNav .nav img {
+                    width: 20px;
+                    border: 0;
+                }
+
+                #bottomNav .nav h5 {
+                    margin-top: 2px;
+                    font-weight: normal;
+                    font-size: 12px;
+                }
+
+        .nav-active h5 {
+            color: #1eb0fc;
+        }
+    </style>
+    <script>
+        function bottomNavClick(x) {//底部菜单切换和跳转页面效果
+            //window.location.href='Index.html'
+            //window.location.href='IncompleteOrder.html'
+            //window.location.href='Home.html'
+            document.getElementById("footBtn1").className = "nav";
+            document.getElementById("footBtn2").className = "nav";
+            document.getElementById("footBtn3").className = "nav";
+            document.getElementById(x).className = "nav nav-active";
+            document.getElementById("footBtnImg1").src = "__PUBLIC__/images/home.png";
+            document.getElementById("footBtnImg2").src = "__PUBLIC__/images/order.png";
+            document.getElementById("footBtnImg3").src = "__PUBLIC__/images/Personal-Center.png";
+            if (x == "footBtn1") {
+                document.getElementById("footBtnImg1").src = "__PUBLIC__/images/home-active.png";
+            }
+            else if (x == "footBtn2") {
+                document.getElementById("footBtnImg2").src = "__PUBLIC__/images/order-active.png";
+            }
+            else {
+                document.getElementById("footBtnImg3").src = "__PUBLIC__/images/Personal-Center-active.png";
+
+            }
+        }
+    </script>
+    <!--底部菜单栏-->
+    <div id="bottomNav">
+        <a href="{:U(GROUP_NAME . '/Index/index')}" target="_parent">
+            <div id="footBtn1" class="nav nav-active" onclick="bottomNavClick(this.id)">
+                <img id="footBtnImg1" src="__PUBLIC__/images/home-active.png" />
+                <h5>首页</h5>
+            </div>
+        </a>
+        <a href="{:U(GROUP_NAME . '/Order/incompleteOrder')}" target="_parent">
+            <div id="footBtn2" class="nav" onclick="bottomNavClick(this.id)">
+                <img id="footBtnImg2" src="__PUBLIC__/images/order.png" />
+                <h5>订单</h5>
+            </div>
+        </a>
+        <a href="{:U(GROUP_NAME . '/Home/home')}" target="_parent">
+
+            <div id="footBtn3" class="nav" onclick="bottomNavClick(this.id)">
+                <img id="footBtnImg3" src="__PUBLIC__/images/Personal-Center.png" />
+                <h5>我的</h5>
+            </div>
+        </a>
+
+</div>
+
+
+
+
+

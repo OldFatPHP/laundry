@@ -1,0 +1,116 @@
+﻿body {
+            font-family: "Microsoft YaHei", Times, serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            height: 50px;
+            line-height: 50px;
+            width: 100%;
+            color: #8f8484;
+            background-color: #fff;
+            text-align: center;
+            font-size: 20px;
+        }
+
+            .header a {
+                position: absolute;
+                left: 10px;
+                line-height: 55px;
+                color: #8f8484;
+                font-size: 16px;
+                text-decoration: none;
+            }
+
+        .btn {
+            width: 100%;
+            height: 50px;
+            background-color: #0094ff;
+            color: #fff;
+            font-size: 20px;
+            border: none;
+            outline: none;
+            font-family: "Microsoft YaHei", Times, serif;
+            letter-spacing: 4px;
+            margin-top: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 25px;
+        }
+
+
+        .input-div input {
+            height: 46px;
+            line-height: 46px;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            color: #808080;
+        }
+
+        .tel {
+            background: url("/images/login-tel.png") no-repeat #fff;
+            background-position-x: 15px;
+            background-position-y: center;
+            height: 50px;
+            line-height: 50px;
+            text-indent: 62px;
+        }
+
+        .Verify-code {
+            background: url("/images/login-Verify-code.png") no-repeat #fff;
+            background-position-x: 15px;
+            background-position-y: center;
+            height: 50px;
+            line-height: 50px;
+            text-indent: 62px;
+        }
+
+        .psd {
+            background: url("/images/login-psd.png") no-repeat #fff;
+            background-position-x: 15px;
+            background-position-y: center;
+            height: 50px;
+            line-height: 50px;
+            text-indent: 62px;
+        }
+        .username {
+            background: url("/images/login-username.png") no-repeat #fff;
+            background-position-x: 15px;
+            background-position-y: center;
+            height: 50px;
+            line-height: 50px;
+            text-indent: 62px;
+        }
+         .error {
+            background-color: #f6caab;
+            border-top: 1px solid #ff6a00;
+            border-bottom: 1px solid #ff6a00;
+            color: #909090;
+            position: absolute;
+            top: 45px;
+            width: 100%;
+            opacity: 0.9;
+            height: 25px;
+            line-height: 25px;
+            text-align: center;
+            display: none;
+        }
+         a {
+            color: #8f8484;
+            font-size: 16px;
+            text-decoration: none;
+        }
+        .a-link {
+            float: right;
+            margin-right: 10px;
+            margin-top: 10px;
+        }
+        .error a{
+            color:#ff6a00;
+        }

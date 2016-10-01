@@ -1,0 +1,42 @@
+﻿<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0 minimal-ui" />
+<link href="__PUBLIC__/css/ServerDiv.css" rel="stylesheet" />
+<script src="__PUBLIC__/js/buy.js"></script>
+
+ <!--奢侈品模块-->
+        <div id="luxuryDiv" class="big-div">
+            <volist name="luxuryData" id="luxuryDataVo">
+                <div class="hot-div">
+                    <div id="windowH{$luxuryDataVo.productId}" class="hot-goods" onclick="buy(this.id)">
+                        <div id="buyNumH{$luxuryDataVo.productId}" class="buy-num">0</div>
+                        <img src="{$luxuryDataVo.productImage}" id="goodsImgH{$luxuryDataVo.productId}" />
+                        <h4 id="goodsNameH{$luxuryDataVo.productId}">{$luxuryDataVo.productName}</h4>
+                        <h4 class="price"><span class="small-rmb">￥</span><span id="goodspriceH{$luxuryDataVo.productId}">{$luxuryDataVo.productPrice}</span></h4>
+                    </div>
+                    <div class="hot-intro-div">
+                        <div class="vertical-line"></div>
+                        <div class="hot-intro">
+                            <h4 class="intro-header">套餐介绍：</h4>
+                            <h4>{$luxuryDataVo.productDetail}</h4>
+                        </div>
+                    </div>
+                </div>
+            </volist>
+
+            <!--<div class="hot-div">
+                <div id="windowH2" class="hot-goods" onclick="buy(this.id)">
+                    <div id="buyNumH2" class="buy-num">0</div>
+                    <img src="__PUBLIC__/images/goods17.jpg" id="goodsImgH2" />
+                    <h4 id="goodsNameH2">钱包边油修复</h4>
+                    <h4 class="price"><span class="small-rmb">￥</span><span id="goodspriceH2">72.0</span></h4>
+                    <h5>￥90</h5>
+                </div>
+                <div class="hot-intro-div">
+                    <div class="vertical-line"></div>
+                    <div class="hot-intro">
+                        <h4 class="intro-header">套餐介绍：</h4>
+                        <h4>整体</h4>
+                    </div>
+                </div>
+            </div>-->
+
+        </div>

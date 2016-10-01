@@ -1,0 +1,44 @@
+﻿<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0 minimal-ui" />
+<link href="css/ServerDiv.css" rel="stylesheet" />
+<script src="js/buy.js"></script>
+<script>
+    window.onload = function () {
+        //还原按钮样式，改变被点击的按钮的样式
+        var Nav = document.getElementById('SecondNav').contentWindow;
+        Nav.document.getElementById("ClothesId1").className = "";
+        Nav.document.getElementById("ClothesId2").className = "";
+        Nav.document.getElementById("ClothesId3").className = "";
+        Nav.document.getElementById("ClothesId5").className = "";
+        Nav.document.getElementById("ClothesId4").className = "active";
+    };
+</script>
+
+<iframe src="SecondNav.html" frameborder="0" id="SecondNav" scrolling="no"></iframe>
+
+<!--配件-->
+<div id="partsDiv" class="window-div">
+    <div id="windowD1" class="show-window" onclick="buy(this.id)">
+        <div id="buyNumD1" class="buy-num">0</div>
+        <img src="images/goods12.png" id="goodsImgD1" />
+        <h4 id="goodsNameD1">领带</h4>
+        <h4 class="price"><span class="small-rmb">￥</span><span id="goodspriceD1">12.0</span></h4>
+    </div>
+    <div id="windowD2" class="show-window" onclick="buy(this.id)">
+        <div id="buyNumD2" class="buy-num">0</div>
+        <img src="images/goods12.png" id="goodsImgD2" />
+        <h4 id="goodsNameD2">领带</h4>
+        <h4 class="price"><span class="small-rmb">￥</span><span id="goodspriceD2">12.0</span></h4>
+    </div>
+    <div id="windowD3" class="show-window" onclick="buy(this.id)">
+        <div id="buyNumD3" class="buy-num">0</div>
+        <img src="images/goods12.png" id="goodsImgD3" />
+        <h4 id="goodsNameD3">领带</h4>
+        <h4 class="price"><span class="small-rmb">￥</span><span id="goodspriceD3">12.0</span></h4>
+    </div>
+    <div id="windowD4" class="show-window" onclick="buy(this.id)">
+        <div id="buyNumD4" class="buy-num">0</div>
+        <img src="images/goods12.png" id="goodsImgD4" />
+        <h4 id="goodsNameD4">领带</h4>
+        <h4 class="price"><span class="small-rmb">￥</span><span id="goodspriceD4">12.0</span></h4>
+    </div>
+</div>

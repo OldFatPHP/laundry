@@ -1,0 +1,279 @@
+<?php if (!defined('THINK_PATH')) exit();?>﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0 minimal-ui" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>个人中心</title>
+    <style>
+        /* 1. General */
+        body {
+            background-color: #f0f0f0;
+            overflow-x: hidden;
+            margin: 0px;
+            color: #1a1a1a;
+            font-family: "Microsoft YaHei", Times, serif;
+            text-align: center;
+            font-size: 15px;
+        }
+
+        .mainbody {
+            width: 100%;
+            padding-bottom: 70px;
+            text-align: center;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .user-data {
+            background: url(images/Home-bg.png) no-repeat;
+            background-size: 100% 100%;
+            width: 100%;
+            font-size: 14px;
+            height: 145px;
+        }
+           
+        .logo {
+            text-indent: 10px;
+            text-align: left;
+            width:70px;
+        }
+        .logo img{
+            width:100%;
+        }
+        .name {
+            width: auto;
+            text-indent: 20px;
+            text-align: left;
+        }
+            .name div:nth-child(2){
+                font-size:13px;
+                color:#666666;
+            }
+        .user-data td:nth-child(3) div {
+            color: #ff690e;
+            font-size:15px;
+            cursor:pointer;
+        }
+        .wallet-header {
+            height: 40px;
+            background-color: #fff;
+            text-align: left;
+            text-indent: 10px;
+            line-height:40px;
+            font-size: 14px;
+            color: #8c8c8c;
+        }
+            .wallet-header img{
+                width:18px;
+                margin-right:10px;
+                margin-bottom:-3px;
+            }
+        .wallet {
+            width: 100%;
+            background-color: #fff;
+            height: 65px;
+            font-size: 14px;
+            border-top: 1px solid #ededed;
+            border-bottom: 1px solid #e1e1e1;
+        }
+        .wallet-div{
+            width:33.3%;
+            float:left;
+            line-height:20px;
+            margin-top:12px;
+            cursor:default;
+        }
+        .wallet-div div:nth-child(2){
+            color:#8c8c8c;
+        }
+        .table2 {
+            width: 100%;
+            background-color: #fff;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            border-top: 1px solid #ededed;
+            border-bottom: 1px solid #e1e1e1;
+        }
+        .table2 th img{
+            width:17px;
+            margin-bottom:-3px;
+        }
+            .table2 th{
+                width:35px;
+                height:45px;
+            }
+            .table2 td {
+                text-align: left;
+                cursor: pointer;
+                font-size: 14px;
+                border-top: 1px solid #ededed;
+            }
+                .table2 tr:nth-child(1) td {
+                    border: none;
+                }
+        .a-link {
+            width: 25px;
+        }
+            .a-link img {
+                width: 8px;
+                margin-bottom: -3px;
+            }
+        .hot-line{
+            height:45px;
+            background-color:#fff;
+            line-height:45px;
+            font-size:14px;
+            color:#666666;
+        }
+        /*<!--底部菜单栏-->*/
+        #bottomNav {
+            background-color: #fff;
+            height: 40px;
+            z-index: 999;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            _position: absolute; /* for IE6 */
+            _top: expression(documentElement.scrollTop + documentElement.clientHeight-this.offsetHeight); /* for IE6 */
+            overflow: visible;
+            border-top: 1px solid #E6E6E6;
+            padding-top: 8px;
+        }
+
+            #bottomNav .nav {
+                text-align: center;
+                width: 33.3%;
+                float: left;
+                color: #808080;
+            }
+
+                #bottomNav .nav img {
+                    width: 20px;
+                    border: 0;
+                }
+
+                #bottomNav .nav h5 {
+                    margin-top: -4px;
+                    font-weight: normal;
+                    font-size: 12px;
+                }
+
+        .nav-active h5 {
+            color: #1eb0fc;
+        }
+
+
+    </style>
+
+</head>
+<body>
+    <div class="mainbody">
+            <table class="user-data">
+                <tr>
+                    <td class="logo">
+                        <img src="__PUBLIC__/images/logo.png" />
+                    </td>
+                    <td class="name">
+                        <div><?php echo ($user['userPhone']); ?></div>
+                        <div>柏洗更干净！</div>
+                    </td>
+                    <td>
+                        <div onclick="window.location.href = '<?php echo U(GROUP_NAME . '/Home/recharge', array('userBalance' => $user['userBalance']));?>'">充值></div>
+                    </td>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <td>
+                        <div onclick="window.location.href = '<?php echo U(GROUP_NAME . '/Login/logout');?>'">退出登录</div>
+                    </td>
+                </tr>
+            </table>
+        <div class="wallet-header">
+            <span><img src="__PUBLIC__/images/wallet.png" /></span>
+            <span>我的钱包</span>
+        </div>
+        <div class="wallet">
+            <div class="wallet-div"onclick="window.location.href='<?php echo U(GROUP_NAME . '/Home/coupon');?>'">
+                <div> <?php echo ($user['coupon']); ?> 张</div>
+                <div>优惠券</div>
+            </div>
+            <div class="wallet-div" onclick="window.location.href='<?php echo U(GROUP_NAME . '/Home/recharge', array('userBalance' => $user['userBalance']));?>'">
+                <div>￥ <?php echo ($user['userBalance']); ?> 元</div>
+                <div>余额</div>
+            </div>
+            <div class="wallet-div" onclick="window.location.href='<?php echo U(GROUP_NAME . '/Home/integral', array('userIntegral' => $user['userIntegral']));?>'">
+                <div><?php echo ($user['userIntegral']); ?> </div>
+                <div>积分</div>
+            </div>
+        </div>
+        <table class="table2">
+            <tr onclick="window.location.href = '<?php echo U(GROUP_NAME . '/Home/address');?>'">
+                <th>
+                    <img src="__PUBLIC__/images/position.png" />
+                </th>
+                <td>常用地址</td>
+                <td class="a-link">
+                    <img src="__PUBLIC__/images/link.png" />
+                </td>
+            </tr>
+            <!-- <tr onclick="window.location.href = 'Recommend.html'">
+                <th>
+                    <img src="__PUBLIC__/images/recommend.png" />
+                </th>
+                <td>推荐有奖</td>
+                <td class="a-link">
+                    <img src="__PUBLIC__/images/link.png" />
+                </td>
+            </tr> -->
+            <tr onclick="window.location.href = '<?php echo U(GROUP_NAME . '/Home/integral', array('userIntegral' => $user['userIntegral']));?>'">
+                <th>
+                    <img src="__PUBLIC__/images/recommend.png" />
+                </th>
+                <td>积分兑换</td>
+                <td class="a-link">
+                    <img src="__PUBLIC__/images/link.png" />
+                </td>
+            </tr>
+            <tr onclick="window.location.href = '<?php echo U(GROUP_NAME . '/Home/agreement');?>'">
+                <th>
+                    <img src="__PUBLIC__/images/agreement.png" />
+                </th>
+                <td>用户协议</td>
+                <td class="a-link">
+                    <img src="__PUBLIC__/images/link.png" />
+                </td>
+            </tr>
+            <tr onclick="window.location.href = '<?php echo U(GROUP_NAME . '/Home/suggest');?>'">
+                <th>
+                    <img src="__PUBLIC__/images/suggest.png" />
+                </th>
+                <td>意见反馈</td>
+                <td class="a-link">
+                    <img src="__PUBLIC__/images/link.png" />
+                </td>
+            </tr>
+            
+        </table>
+        <div class="hot-line">客服电话:400-888-8888</div>
+    </div>
+    <!--底部菜单栏-->
+    <div id="bottomNav">
+        <a href="<?php echo U(GROUP_NAME . '/Index/index');?>" target="_parent">
+            <div id="footBtn1" class="nav" onclick="bottomNavClick(this.id)">
+                <img id="footBtnImg1" src="__PUBLIC__/images/home.png" />
+                <h5>首页</h5>
+            </div>
+        </a>
+        <a href="<?php echo U(GROUP_NAME . '/Order/index');?>" target="_parent">
+            <div id="footBtn2" class="nav" onclick="bottomNavClick(this.id)">
+                <img id="footBtnImg2" src="__PUBLIC__/images/order.png" />
+                <h5>订单</h5>
+            </div>
+        </a>
+        <a href="<?php echo U(GROUP_NAME . '/Home/index');?>" target="_parent">
+            <div id="footBtn3" class="nav-active  nav" onclick="bottomNavClick(this.id)">
+                <img id="footBtnImg3" src="__PUBLIC__/images/Personal-Center-active.png" />
+                <h5>我的</h5>
+            </div>
+        </a>
+    </div>
+</body>
+</html>
