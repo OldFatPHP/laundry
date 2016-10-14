@@ -11,7 +11,6 @@
         var InterValObj; //timer变量，控制时间
         var count = 30; //间隔函数，1秒执行
         var curCount;//当前剩余秒数
-
         function validatemobile(mobile) {
             var myreg = /^1[3|4|5|8][0-9]\d{4,8}$/;
 
@@ -26,7 +25,6 @@
             }
 
         }
-
         function sendMessage() {
             var mobile = document.getElementById("mobile").value;
             validatemobile(mobile);//调用上边的方法验证手机号码的正确性
@@ -47,7 +45,6 @@
                 });
             }
         }
-
         //timer处理函数
         function SetRemainTime() {
             if (curCount == 0) {
@@ -60,10 +57,9 @@
                 $("#btnSendCode").val("请在" + curCount + "秒内输入验证码");
             }
         }
-
         //验证是否可提交
         $(document).ready(function () {
-            $('#submit').click(function () {
+            $('.btn').click(function () {
                 if ($("#mobile").val().length <= 0) {
                     $(".error").css("display", "block");
                     $(".error").html("请输入手机号码！");
@@ -79,9 +75,9 @@
                     $(".error").html("用户名不能为空！");
                     return false;
                 }
-                else if ($("#VerifyCode").val() != "123456") {//此处验证码要传值
+                else if ($("#VerifyCode").val().length <= 0) {//此处验证码要传值
                     $(".error").css("display", "block");
-                    $(".error").html("验证码错误！");
+                    $(".error").html("请输入验证码！");
                     return false;
                 }
                 else if ($("#pwd").val().length < 6 || $("#pwd").val().length > 16) {
@@ -101,10 +97,6 @@
                 }
             });
         });
-
-
-
-
     </script>
 
 
@@ -148,7 +140,7 @@
             <tr>
                 <td>
                     <div class="input-div Verify-code">
-                        <input id="VerifyCode" type="text" placeholder="请输入验证码" style="width:110px;" required/>
+                        <input id="VerifyCode" name="VerifyCode" type="text" placeholder="请输入验证码" style="width:110px;" required/>
                         <input id="btnSendCode" type="button" value="获取验证码" onclick="sendMessage()" style="float:right;height:100%;padding-left:10px;padding-right:10px;" />
                     </div>
                 </td>

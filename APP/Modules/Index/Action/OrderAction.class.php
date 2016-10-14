@@ -42,6 +42,16 @@ class OrderAction extends Action{
        $this -> display();
    }
 
+   public function buy () {
+       $goodsData['num'] = I('num');
+       $goodsData['goodsNum'] = I('goodsNum');
+       $goodsData['goodsPrice'] = I('goodsPrice');
+       $goodsData['goodsName'] = I('goodsName');
+       $goodsData['test'] = 'test';
+       $data = json_encode($goodsData);
+       return $data;
+   }
+
    public function appointment () {
        $this -> display();
    }

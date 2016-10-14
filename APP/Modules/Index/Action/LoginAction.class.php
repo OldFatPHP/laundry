@@ -34,19 +34,27 @@
 
 
         public function register(){//用户注册界面；
-        
-        $this->display();
+            $this->display();
         }
 
 
 
         public function addRegister(){//用户注册；
             $userData = $_POST;
-            $res = M('user') -> add($userData);
-            if ($res) {
-                $this -> success('注册成功，请登录...', U('Login/index'));
+            //dump($userData);die;
+            //验证验证码
+            $VerifyCode = $userData['VerifyCode'];
+            $userPhone = $userData['userPhone'];
+            if ($this->checkVerifyCode($VerifyCode) ) {
+                if ($this->checkuserPhone($userPhone)) {
+                    //$res = M('user') -> add($userData);
+                    $res = 1;
+                    if ($res) {
+                        $this -> success('注册成功，请登录...', U('Login/index'));
+                    }
+                }
             }else {
-                $this -> error('注册失败，请重新注册...');
+                $this -> error('注册失败，请填写正确的信息...');
             }
         }
 
@@ -54,4 +62,20 @@
             $this->display();
         }
 
+        public function checkVerifyCode ($str) {
+            if ($str != '123456') {
+                return false;
+            }else {
+                return true;
+            }
+        }
+
+        public function checkuserPhone ($str) {
+            $myreg = '/^1[3|4|5|8][0-9]\d{4,8}$/';
+            if (preg_match($myreg, $str)) {
+                return true;
+            }else {
+                return false;
+            }
+        }
     }

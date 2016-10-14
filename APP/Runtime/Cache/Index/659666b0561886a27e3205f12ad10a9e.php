@@ -1,0 +1,314 @@
+<?php if (!defined('THINK_PATH')) exit();?>﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0 minimal-ui"/>
+<title>Index</title>
+    <link href="__PUBLIC__/css/index.css" rel="stylesheet" />
+	<script>
+        function GetRequest() 
+    </script>
+    <style>
+        /*<!--底部菜单栏-->*/
+        #bottomNav {
+            background-color: #fff;
+            height: 40px;
+            z-index: 999;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            _position: absolute; /* for IE6 */
+            _top: expression(documentElement.scrollTop + documentElement.clientHeight-this.offsetHeight); /* for IE6 */
+            overflow: visible;
+            border-top: 1px solid #E6E6E6;
+            padding-top: 8px;
+        }
+
+            #bottomNav .nav {
+                text-align: center;
+                width: 33.3%;
+                float: left;
+                color: #808080;
+            }
+
+                #bottomNav .nav img {
+                    width: 20px;
+                    border: 0;
+                }
+
+                #bottomNav .nav h5 {
+                    margin-top: -4px;
+                    font-weight: normal;
+                    font-size: 12px;
+                }
+
+        .nav-active h5 {
+            color: #1eb0fc;
+        }
+
+    </style>
+</head>
+<body onload="GetRequest()">
+    <div class="mainbody">
+
+        <!--广告展示窗口-->
+        <div id="wrap">
+            <!--图片展示区-->
+            <div id="inner" class="clear">
+                <!--所有图片并排的块-->
+                <img src="__PUBLIC__/images/ad-images-1.jpg" />
+                <img src="__PUBLIC__/images/ad-images-2.jpg" />
+                <img src="__PUBLIC__/images/ad-images-3.jpg" />
+                <img src="__PUBLIC__/images/ad-images-1.jpg" />
+            </div>
+            <div class="paganation" id="paganation">
+                <!--页面按钮区域-->
+                <div class="selected">1</div>
+                <div>2</div>
+                <div>3</div>
+            </div>
+            <div id="left" class="arrow"></div><!--向左切换按钮-->
+            <div id="right" class="arrow"></div><!--向右切换按钮-->
+            <script src="__PUBLIC__/js/js.js"></script><!--该插件一定要放在此模块后面-->
+            <div class="loction-btn" onclick="window.location.href='http://localhost/laundry/index.php/Index/Index/location'">广州▼</div>
+        </div>
+
+        <!--商品展示模块-->
+        <div id="show">
+            <div class="show-header">
+                <h5>— 专业清洗 —</h5>
+            </div>
+            <div class="show-main">
+                <!-- <a href="ProfessionalCleaning.html?div=clothes"> -->
+                <a href="<?php echo U(GROUP_NAME . '/Index/clothes');?>">
+                    <div class="show-window">
+                        <h3>洗衣</h3>
+                        <img src="__PUBLIC__/images/goods1.png" />
+                    </div>
+                </a>
+                <a href="<?php echo U(GROUP_NAME . '/Index/clothes');?>">
+                    <div class="show-window">
+                        <h3>洗鞋</h3>
+                        <img src="__PUBLIC__/images/goods2.png" />
+                    </div>
+                </a>
+            </div>
+            <div class="recharge" onclick="window.location.href='<?php echo U(GROUP_NAME . '/Home/index');?>'">
+                <img src="__PUBLIC__/images/toRecharge.png" />
+            </div>
+            <div class="show-main">
+
+                <a href="<?php echo U(GROUP_NAME . '/Index/clothes');?>">
+                    <div class="show-window">
+                        <h3>洗家居</h3>
+                        <img src="__PUBLIC__/images/goods3.png" />
+                    </div>
+                </a>
+                <a href="<?php echo U(GROUP_NAME . '/Index/clothes');?>">
+                    <div class="show-window">
+                        <h3>奢侈品养护</h3>
+                        <img src="__PUBLIC__/images/goods6.png" />
+                    </div>
+                </a>
+
+            </div>
+
+
+
+
+        </div>
+
+        <!--关于我们-->
+        <div id="about-us">
+
+            <div class="about-us" onclick="window.location.href='Introduce.html'">
+                <a href="#">
+                    <img src="__PUBLIC__/images/Introduction.png" />
+                </a>
+                <h4>服务介绍</h4>
+            </div>
+
+
+            <div class="about-us" onclick="window.location.href='Scope.html'">
+                <a href="#">
+                    <img src="__PUBLIC__/images/Range.png" />
+                </a>
+                <h4>服务范围</h4>
+            </div>
+
+
+            <div class="about-us" onclick="window.location.href='Price.html'">
+                <a href="#">
+                    <img src="__PUBLIC__/images/price.png" />
+                </a>
+                <h4>价格中心</h4>
+            </div>
+            <div class="about-us" onclick="window.location.href='Suggestion.html'">
+                <a href="#">
+                    <img src="__PUBLIC__/images/advise.png" />
+                </a>
+                <h4>意见反馈</h4>
+            </div>
+
+        </div>
+
+        <!--评价模块-->
+        <div class="comment-big-bg">
+            <div class="comment-slider">
+                <div class="comment">
+                    <div class="comment-bg">
+                        <h4>广州用户 157*****7529</h4>
+                        <div class="left-colon">“</div>
+                        <div class="comment-data">服务态度良好，洗的很干净！服务态度良好，务态度良好，洗的很干净！服务态度良好，洗的很干净！服务态度良好，洗的很干净！干净！</div>
+                        <div class="right-colon">”</div>
+                        <div class="item">
+                            <span id="ServiceItems">洗鞋服务</span>
+                            <span id="comment-date">2016-1-12</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="comment">
+                    <div class="comment-bg">
+                        <h4>广州用户 157*****7529</h4>
+                        <div class="left-colon">“</div>
+                        <div class="comment-data">服务态度良好，洗的很干净！服务态度良好，务态度良好，洗的很干净！服务态度良好，洗的很干净！服务态度良好，洗的很干净！干净！</div>
+                        <div class="right-colon">”</div>
+                        <div class="item">
+                            <span id="ServiceItems">洗鞋服务</span>
+                            <span id="comment-date">2016-1-12</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="comment">
+                    <div class="comment-bg">
+                        <h4>广州用户 157*****7529</h4>
+                        <div class="left-colon">“</div>
+                        <div class="comment-data">服务态度良好，洗的很干净！服务态度良好，务态度良好，洗的很干净！服务态度良好，洗的很干净！服务态度良好，洗的很干净！干净！</div>
+                        <div class="right-colon">”</div>
+                        <div class="item">
+                            <span id="ServiceItems">洗鞋服务</span>
+                            <span id="comment-date">2016-1-12</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="comment">
+                    <div class="comment-bg">
+                        <h4>广州用户 157*****7529</h4>
+                        <div class="left-colon">“</div>
+                        <div class="comment-data">服务态度良好，洗的很干净！服务态度良好，务态度良好，洗的很干净！服务态度良好，洗的很干净！服务态度良好，洗的很干净！干净！</div>
+                        <div class="right-colon">”</div>
+                        <div class="item">
+                            <span id="ServiceItems">洗鞋服务</span>
+                            <span id="comment-date">2016-1-12</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="comment">
+                    <div class="comment-bg">
+                        <h4>广州用户 157*****7529</h4>
+                        <div class="left-colon">“</div>
+                        <div class="comment-data">服务态度良好，洗的很干净！服务态度良好，务态度良好，洗的很干净！服务态度良好，洗的很干净！服务态度良好，洗的很干净！干净！</div>
+                        <div class="right-colon">”</div>
+                        <div class="item">
+                            <span id="ServiceItems">洗鞋服务</span>
+                            <span id="comment-date">2016-1-12</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="comment">
+                    <div class="comment-bg">
+                        <h4>广州用户 157*****7529</h4>
+                        <div class="left-colon">“</div>
+                        <div class="comment-data">服务态度良好，洗的很干净！服务态度良好，务态度良好，洗的很干净！服务态度良好，洗的很干净！服务态度良好，洗的很干净！干净！</div>
+                        <div class="right-colon">”</div>
+                        <div class="item">
+                            <span id="ServiceItems">洗鞋服务</span>
+                            <span id="comment-date">2016-1-12</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="comment">
+                    <div class="comment-bg">
+                        <h4>广州用户 157*****7529</h4>
+                        <div class="left-colon">“</div>
+                        <div class="comment-data">服务态度良好，洗的很干净！服务态度良好，务态度良好，洗的很干净！服务态度良好，洗的很干净！服务态度良好，洗的很干净！干净！</div>
+                        <div class="right-colon">”</div>
+                        <div class="item">
+                            <span id="ServiceItems">洗鞋服务</span>
+                            <span id="comment-date">2016-1-12</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="comment">
+                    <div class="comment-bg">
+                        <h4>广州用户 157*****7529</h4>
+                        <div class="left-colon">“</div>
+                        <div class="comment-data">服务态度良好，洗的很干净！服务态度良好，务态度良好，洗的很干净！服务态度良好，洗的很干净！服务态度良好，洗的很干净！干净！</div>
+                        <div class="right-colon">”</div>
+                        <div class="item">
+                            <span id="ServiceItems">洗鞋服务</span>
+                            <span id="comment-date">2016-1-12</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="comment">
+                    <div class="comment-bg">
+                        <h4>广州用户 157*****7529</h4>
+                        <div class="left-colon">“</div>
+                        <div class="comment-data">服务态度良好，洗的很干净！服务态度良好，务态度良好，洗的很干净！服务态度良好，洗的很干净！服务态度良好，洗的很干净！干净！</div>
+                        <div class="right-colon">”</div>
+                        <div class="item">
+                            <span id="ServiceItems">洗鞋服务</span>
+                            <span id="comment-date">2016-1-12</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="comment">
+                    <div class="comment-bg">
+                        <h4>广州用户 157*****7529</h4>
+                        <div class="left-colon">“</div>
+                        <div class="comment-data">服务态度良好，洗的很干净！服务态度良好，务态度良好，洗的很干净！服务态度良好，洗的很干净！服务态度良好，洗的很干净！干净！</div>
+                        <div class="right-colon">”</div>
+                        <div class="item">
+                            <span id="ServiceItems">洗鞋服务</span>
+                            <span id="comment-date">2016-1-12</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="more-comment">
+                <a href="Comment.html">
+                    <h4>[更多评价]</h4>
+                </a>
+            </div>
+
+        </div>      
+    </div>
+
+    <!--底部菜单栏-->
+    <div id="bottomNav">
+        <a href="<?php echo U(GROUP_NAME . '/Index/index');?>" target="_parent">
+            <div id="footBtn1" class="nav" onclick="bottomNavClick(this.id)">
+                <img id="footBtnImg1" src="__PUBLIC__/images/home.png" />
+                <h5>首页</h5>
+            </div>
+        </a>
+        <a href="<?php echo U(GROUP_NAME . '/Order/index');?>" target="_parent">
+            <div id="footBtn2" class="nav" onclick="bottomNavClick(this.id)">
+                <img id="footBtnImg2" src="__PUBLIC__/images/order.png" />
+                <h5>订单</h5>
+            </div>
+        </a>
+        <a href="<?php echo U(GROUP_NAME . '/Home/index');?>" target="_parent">
+            <div id="footBtn3" class="nav-active  nav" onclick="bottomNavClick(this.id)">
+                <img id="footBtnImg3" src="__PUBLIC__/images/Personal-Center-active.png" />
+                <h5>我的</h5>
+            </div>
+        </a>
+    </div>
+</body>
+</html>

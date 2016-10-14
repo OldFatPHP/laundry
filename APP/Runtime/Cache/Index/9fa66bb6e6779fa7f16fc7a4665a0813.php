@@ -1,96 +1,151 @@
-<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
-<!-- saved from url=(0045)http://um.mama.cn/passport/wapindex/register/ -->
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>注册帐号</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
-        <meta content="telephone=no" name="format-detection">
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta content="" name="keywords">
-        <meta content="" name="description">
-        <script src="__PUBLIC__/js/jquery.min.js"></script>
-        <script type="text/javascript" src="__PUBLIC__/js/md5.min.js"></script>
-        <script type="text/javascript" src="__PUBLIC__/js/common.js"></script>
+<?php if (!defined('THINK_PATH')) exit();?>﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0 minimal-ui" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <script src="__PUBLIC__/login/js/jquery-2.0.0.min.js"></script>
+    <title>注册账号</title>
+    <link href="__PUBLIC__/login/css/login.css" rel="stylesheet" />
+   
+    <script type="text/javascript">
+        var InterValObj; //timer变量，控制时间
+        var count = 30; //间隔函数，1秒执行
+        var curCount;//当前剩余秒数
+        function validatemobile(mobile) {
+            var myreg = /^1[3|4|5|8][0-9]\d{4,8}$/;
 
-        <script type="text/javascript" src="__PUBLIC__/js/wap_common.js"></script>
-        <script type="text/javascript" src="__PUBLIC__/js/wap_register.js"></script>
-        <script type="text/javascript">
-            var ajax_domain = '';
-        </script>
-        <link rel="stylesheet" href="__PUBLIC__/css/register-wap.css">
-    
-<script language="javascript" type="text/javascript" src="__PUBLIC__/js/35ff706fd57d11c141cdefcd58d6562b.js" charset="gb2312"></script><script type="text/javascript">
-hQGHuMEAyLn('[id="bb9c190068b8405587e5006f905e790c"]');</script></head>
-    <body><style>[id="bb9c190068b8405587e5006f905e790c"]{display:none;position:absolute;top:-1000000px;visibility:hidden}</style>
-        <nav class="sp">
-            <a href="" class="goback">
-                <b></b>
-            </a>
-           注册帐号        </nav>
-        <form class="register-form" action="<?php echo U(GROUP_NAME . '/Login/addRegister');?>" id="register_form" autocomplete="off" method="post">
-            <section class="groups-wrap g-area">
-                <div class="form-group">
-                    <div class="label-text">手机号：</div>
-                    <div class="ipt-wrap">
-                        <div class="cls-btn"></div>
-                        <input type="phone" class="ipt-text" id="phone" name="phone" placeholder="手机号">
-                    </div>
-                </div>
-<!--                 <div class="form-group verfiy-group">
-                    <div class="label-text">验证码：</div>
-                    <div class="ipt-wrap">
-                        <input type="text" name="phone_vcode" class="ipt-text ipt-verfiycode" id="wap_verify_code_input" placeholder="验证码" maxlength="4">
-                        <div class="get-verifycode-box">
-                            <span id="time_show" style="display:none;"><i class="time" id="seconds_show">60</i>秒后重新获取</span>
-                            <a id="getcode" class="get-verify-btn" href="javascript:void(0);">获取验证码</a>
-                        </div>
-                    </div>
-                </div> -->
-                <div class="form-group">
-                    <div class="label-text">用户名：</div>
-                    <div class="ipt-wrap">
-                        <div class="cls-btn"></div>
-                        <input type="text" name="username" class="ipt-text" id="username" placeholder="用户名">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="label-text">请设置密码：</div>
-                    <div class="ipt-wrap">
-                        <div class="cls-btn"></div>
-                        <input type="password" name="password" maxlength="20" class="ipt-text" id="password" placeholder="数字+字母,6-20位">
-                    </div>
-                    <div class="ipt-wrap password-power">
-                        <div class="process-bar">
-                            <div class="bar-item"><span>低</span></div>
-                            <div class="bar-item"><span>中</span></div>
-                            <div class="bar-item"><span>强</span></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="label-text">请确认密码：</div>
-                    <div class="ipt-wrap">
-                        <div class="cls-btn"></div>
-                        <input type="password" name="repassword" maxlength="20" class="ipt-text" id="repassword" placeholder="确认密码">
-                    </div>
-                </div>
-            </section>
+            if (mobile.length != 11 || !myreg.test(mobile)) {
+                $(".error").css("display", "block");
+                $(".error").html("请输入有效手机号码！");
+                return false;
+            }
+            else {
+                document.getElementById("error").style.display = "none";
+                return true;
+            }
 
-            <!-- 登录按键 -->
-            <section class="btn-group g-area">
-                <button type="button" id="submit">注 册</button>
-            </section>
+        }
+        function sendMessage() {
+            var mobile = document.getElementById("mobile").value;
+            validatemobile(mobile);//调用上边的方法验证手机号码的正确性
+            if (validatemobile(mobile) == true) {
+                curCount = count;
+                //设置button效果，开始计时
+                $("#btnSendCode").attr("disabled", "true");
+                $("#btnSendCode").val("请在" + curCount + "秒内输入验证码");
+                InterValObj = window.setInterval(SetRemainTime, 1000); //启动计时器，1秒执行一次
+                //向后台发送处理数据
+                $.ajax({
+                    type: "POST", //用POST方式传输     　　
+                    url: '', //目标地址.
+                    data: "&a=" + mobile,
+                    success: function (result) {
 
-            <section class="text-center">
-                已经注册过，
-                <a href="<?php echo U(GROUP_NAME . '/Login/index');?>">直接登录</a>
-            </section>
-        </form>        
-<script type="text/javascript">
-var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
-document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3Ff2babe867b10ece0ff53079ad6c04981' type='text/javascript'%3E%3C/script%3E"));
-</script><script src="__PUBLIC__/js/h.js" type="text/javascript"></script>   
+                    }
+                });
+            }
+        }
+        //timer处理函数
+        function SetRemainTime() {
+            if (curCount == 0) {
+                window.clearInterval(InterValObj);//停止计时器
+                $("#btnSendCode").removeAttr("disabled");//启用按钮
+                $("#btnSendCode").val("重新发送验证码");
+            }
+            else {
+                curCount--;
+                $("#btnSendCode").val("请在" + curCount + "秒内输入验证码");
+            }
+        }
+        //验证是否可提交
+        $(document).ready(function () {
+            $('.btn').click(function () {
+                if ($("#mobile").val().length <= 0) {
+                    $(".error").css("display", "block");
+                    $(".error").html("请输入手机号码！");
+                    return false;
+                }
+                else if (!$("#mobile").val().match(/^1[3|4|5|8][0-9]\d{4,8}$/)) {
+                    $(".error").css("display", "block");
+                    $(".error").html("手机号码不正确！");
+                    return false;
+                }
+                else if ($("#username").val().length <= 0) {
+                    $(".error").css("display", "block");
+                    $(".error").html("用户名不能为空！");
+                    return false;
+                }
+                else if ($("#VerifyCode").val().length <= 0) 
+                else if ($("#pwd").val().length < 6 || $("#pwd").val().length > 16) {
+                    $(".error").css("display", "block");
+                    $(".error").html("密码长度只能设置为6~16位！");
+                    return false;
+                }
+                else if ($("#pwd").val() != $("#comfirmpwd").val()) {
+                    $(".error").css("display", "block");
+                    $(".error").html("密码不一致，请重新输入新密码！");
+                    return false;
+                }
 
-    
+                else {
+                    $(".error").css("display", "none");
+                    return true;
+                }
+            });
+        });
+    </script>
 
-<div class="g-blackTipsMask"></div></body></html>
+
+
+</head>
+<body>
+    <div class="header">
+        <a onclick="javascript:history.back();">返回</a>
+        注册账号
+    </div>
+    <form action="<?php echo U(GROUP_NAME . '/Login/addRegister');?>" method="post">
+        <table>
+            <tr>
+                <td>
+                    <div class="input-div tel">
+                        <input id="mobile" name="userPhone" type="tel" placeholder="手机号" required/>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="input-div username">
+                        <input id="username" name="userName" type="text" placeholder="用户名" required/>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="input-div psd">
+                        <input id="pwd" type="password" name="userPwd" placeholder="请设置长为6~16位的密码" required/>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="input-div psd">
+                        <input id="comfirmpwd" name="comfirmpwd" type="password" placeholder="请确认密码" required/>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="input-div Verify-code">
+                        <input id="VerifyCode" name="VerifyCode" type="text" placeholder="请输入验证码" style="width:110px;" required/>
+                        <input id="btnSendCode" type="button" value="获取验证码" onclick="sendMessage()" style="float:right;height:100%;padding-left:10px;padding-right:10px;" />
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <input id="submit" class="btn" type="submit" value="提交" />
+
+    </form>
+    <div id="error" class="error"></div>
+
+</body>
+</html>

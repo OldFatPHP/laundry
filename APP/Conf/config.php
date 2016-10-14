@@ -12,10 +12,11 @@ return array(
     'TMPL_FILE_DEPR' => '_',
 
     //数据库配置参数
-    'DB_HOST' => '115.159.99.241',
+    //'DB_HOST' => '115.159.99.241',
+    'DB_HOST' => 'localhost',
     'DB_NAME' => 'laundry',       //此处的数据库名要对应！！
     'DB_USER' => 'root',
-    'DB_PWD'  => '123456',       //此处的数据库密码要对应！！
+    'DB_PWD'  => '',       //此处的数据库密码要对应！！
     'DB_PREFIX' => '',
 
     'show_page_trace'=>ture,

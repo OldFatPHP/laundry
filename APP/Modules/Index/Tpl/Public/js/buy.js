@@ -15,7 +15,14 @@
         var goodsName = document.getElementById(goodsNameId).innerText;//获取商品的名字
 
     }
-    
+    /**
+     * 将购物车的数据提交至控制器并零时存入数据库
+     */
+    var url = "http://localhost/laundry/index.php/Index/Order/buy";
+    $.post("http://localhost/laundry/index.php/Index/Order/buy", {num:num, goodsNum:goodsNum, goodsPrice:goodsPrice, goodName:goodsName}, function (data) {
+        data = eval(data);
+        console.log(data);
+    }, 'json');
         window.parent.CreateList(num, goodsNum, goodsPrice, imgSrc, goodsName);//触发父页面的函数并传值
 
 

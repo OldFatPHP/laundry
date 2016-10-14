@@ -109,9 +109,8 @@
                 <div id="totalNum" class="buy-num">0</div>
                 <img src="__PUBLIC__/images/market-basket.png"onclick="openShoppingBasket()" />
             </div>
-            <div id="orderbtn2" onclick="window.location.href = 'http://localhost/laundry/index.php/Index/Order/appointment'">
+            <div id="orderbtn2" onclick="yuyueqvjian()">
                 <div class="primary-order"><h2>预约取件</h2></div>
-
             </div>
             <div class="estimated-price-div">
                 <div class="estimated-price"><span>预估价格¥</span><span id="totalPrice">0.00</span></div>

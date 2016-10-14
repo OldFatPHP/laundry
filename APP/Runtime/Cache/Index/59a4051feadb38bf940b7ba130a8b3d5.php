@@ -1,6 +1,7 @@
 <?php if (!defined('THINK_PATH')) exit();?>﻿<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0 minimal-ui" />
 <link href="__PUBLIC__/css/ServerDiv.css" rel="stylesheet" />
 <script src="__PUBLIC__/js/buy.js"></script>
+<script src="__PUBLIC__/js/jquery.js"></script>
 <script>
     window.onload = function () {
         //还原按钮样式，改变被点击的按钮的样式

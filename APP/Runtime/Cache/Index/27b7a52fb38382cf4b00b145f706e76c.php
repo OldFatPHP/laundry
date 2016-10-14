@@ -29,7 +29,7 @@
         .addressbg {
             width: 100%;
             height: 100px;
-            background: url(images/adressbg.png) repeat;
+            background: url(http://localhost/laundry/index.php/Index/Tpl/Public/images/adressbg.png) repeat;
             margin-top: 6px;
             margin-bottom: 6px;
             color: #bbc1cc;
