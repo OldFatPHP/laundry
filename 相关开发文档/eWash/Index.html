@@ -1,0 +1,265 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0 minimal-ui"/>
+<title>Index</title>
+    <link href="css/index.css" rel="stylesheet" />
+	<script>
+        function GetRequest() {//加载页面时获取location页面传过来的城市参数，改变城市值
+            var url = location.search; //获取url中"?"符后的字串
+            var theRequest = new Object();
+            var str = url.substr(6);
+            document.getElementById("city").innerText = decodeURI(str);
+        }
+    </script>
+</head>
+<body onload="GetRequest()">
+    <div class="mainbody">
+
+        <!--广告展示窗口-->
+        <div id="wrap">
+            <!--图片展示区-->
+            <div id="inner" class="clear">
+                <!--所有图片并排的块-->
+                <img src="images/ad-images-1.jpg" />
+                <img src="images/ad-images-2.jpg" />
+                <img src="images/ad-images-3.jpg" />
+                <img src="images/ad-images-1.jpg" />
+            </div>
+            <div class="paganation" id="paganation">
+                <!--页面按钮区域-->
+                <div class="selected">1</div>
+                <div>2</div>
+                <div>3</div>
+            </div>
+            <div id="left" class="arrow"></div><!--向左切换按钮-->
+            <div id="right" class="arrow"></div><!--向右切换按钮-->
+            <script src="js/js.js"></script><!--该插件一定要放在此模块后面-->
+            <div class="loction-btn" onclick="window.location.href='Location.html'">广州▼</div>
+        </div>
+
+        <!--商品展示模块-->
+        <div id="show">
+            <div class="show-header">
+                <h5>— 专业清洗 —</h5>
+            </div>
+            <div class="show-main">
+                <a href="ProfessionalCleaning.html?div=clothes">
+                    <div class="show-window">
+                        <h3>洗衣</h3>
+                        <img src="images/goods1.png" />
+                    </div>
+                </a>
+                <a href="ProfessionalCleaning.html?div=shoes">
+                    <div class="show-window">
+                        <h3>洗鞋</h3>
+                        <img src="images/goods2.png" />
+                    </div>
+                </a>
+            </div>
+            <div class="recharge" onclick="window.location.href='Recharge.html'">
+                <img src="images/toRecharge.png" />
+            </div>
+            <div class="show-main">
+
+                <a href="ProfessionalCleaning.html?div=textile">
+                    <div class="show-window">
+                        <h3>洗家居</h3>
+                        <img src="images/goods3.png" />
+                    </div>
+                </a>
+                <a href="ProfessionalCleaning.html">
+                    <div class="show-window">
+                        <h3>奢侈品养护</h3>
+                        <img src="images/goods6.png" />
+                    </div>
+                </a>
+
+            </div>
+
+
+
+
+        </div>
+
+        <!--关于我们-->
+        <div id="about-us">
+
+            <div class="about-us" onclick="window.location.href='Introduce.html'">
+                <a href="#">
+                    <img src="images/Introduction.png" />
+                </a>
+                <h4>服务介绍</h4>
+            </div>
+
+
+            <div class="about-us" onclick="window.location.href='Scope.html'">
+                <a href="#">
+                    <img src="images/Range.png" />
+                </a>
+                <h4>服务范围</h4>
+            </div>
+
+
+            <div class="about-us" onclick="window.location.href='Price.html'">
+                <a href="#">
+                    <img src="images/price.png" />
+                </a>
+                <h4>价格中心</h4>
+            </div>
+            <div class="about-us" onclick="window.location.href='Suggestion.html'">
+                <a href="#">
+                    <img src="images/advise.png" />
+                </a>
+                <h4>意见反馈</h4>
+            </div>
+
+        </div>
+
+        <!--评价模块-->
+        <div class="comment-big-bg">
+            <div class="comment-slider">
+                <div class="comment">
+                    <div class="comment-bg">
+                        <h4>广州用户 157*****7529</h4>
+                        <div class="left-colon">“</div>
+                        <div class="comment-data">服务态度良好，洗的很干净！服务态度良好，务态度良好，洗的很干净！服务态度良好，洗的很干净！服务态度良好，洗的很干净！干净！</div>
+                        <div class="right-colon">”</div>
+                        <div class="item">
+                            <span id="ServiceItems">洗鞋服务</span>
+                            <span id="comment-date">2016-1-12</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="comment">
+                    <div class="comment-bg">
+                        <h4>广州用户 157*****7529</h4>
+                        <div class="left-colon">“</div>
+                        <div class="comment-data">服务态度良好，洗的很干净！服务态度良好，务态度良好，洗的很干净！服务态度良好，洗的很干净！服务态度良好，洗的很干净！干净！</div>
+                        <div class="right-colon">”</div>
+                        <div class="item">
+                            <span id="ServiceItems">洗鞋服务</span>
+                            <span id="comment-date">2016-1-12</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="comment">
+                    <div class="comment-bg">
+                        <h4>广州用户 157*****7529</h4>
+                        <div class="left-colon">“</div>
+                        <div class="comment-data">服务态度良好，洗的很干净！服务态度良好，务态度良好，洗的很干净！服务态度良好，洗的很干净！服务态度良好，洗的很干净！干净！</div>
+                        <div class="right-colon">”</div>
+                        <div class="item">
+                            <span id="ServiceItems">洗鞋服务</span>
+                            <span id="comment-date">2016-1-12</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="comment">
+                    <div class="comment-bg">
+                        <h4>广州用户 157*****7529</h4>
+                        <div class="left-colon">“</div>
+                        <div class="comment-data">服务态度良好，洗的很干净！服务态度良好，务态度良好，洗的很干净！服务态度良好，洗的很干净！服务态度良好，洗的很干净！干净！</div>
+                        <div class="right-colon">”</div>
+                        <div class="item">
+                            <span id="ServiceItems">洗鞋服务</span>
+                            <span id="comment-date">2016-1-12</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="comment">
+                    <div class="comment-bg">
+                        <h4>广州用户 157*****7529</h4>
+                        <div class="left-colon">“</div>
+                        <div class="comment-data">服务态度良好，洗的很干净！服务态度良好，务态度良好，洗的很干净！服务态度良好，洗的很干净！服务态度良好，洗的很干净！干净！</div>
+                        <div class="right-colon">”</div>
+                        <div class="item">
+                            <span id="ServiceItems">洗鞋服务</span>
+                            <span id="comment-date">2016-1-12</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="comment">
+                    <div class="comment-bg">
+                        <h4>广州用户 157*****7529</h4>
+                        <div class="left-colon">“</div>
+                        <div class="comment-data">服务态度良好，洗的很干净！服务态度良好，务态度良好，洗的很干净！服务态度良好，洗的很干净！服务态度良好，洗的很干净！干净！</div>
+                        <div class="right-colon">”</div>
+                        <div class="item">
+                            <span id="ServiceItems">洗鞋服务</span>
+                            <span id="comment-date">2016-1-12</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="comment">
+                    <div class="comment-bg">
+                        <h4>广州用户 157*****7529</h4>
+                        <div class="left-colon">“</div>
+                        <div class="comment-data">服务态度良好，洗的很干净！服务态度良好，务态度良好，洗的很干净！服务态度良好，洗的很干净！服务态度良好，洗的很干净！干净！</div>
+                        <div class="right-colon">”</div>
+                        <div class="item">
+                            <span id="ServiceItems">洗鞋服务</span>
+                            <span id="comment-date">2016-1-12</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="comment">
+                    <div class="comment-bg">
+                        <h4>广州用户 157*****7529</h4>
+                        <div class="left-colon">“</div>
+                        <div class="comment-data">服务态度良好，洗的很干净！服务态度良好，务态度良好，洗的很干净！服务态度良好，洗的很干净！服务态度良好，洗的很干净！干净！</div>
+                        <div class="right-colon">”</div>
+                        <div class="item">
+                            <span id="ServiceItems">洗鞋服务</span>
+                            <span id="comment-date">2016-1-12</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="comment">
+                    <div class="comment-bg">
+                        <h4>广州用户 157*****7529</h4>
+                        <div class="left-colon">“</div>
+                        <div class="comment-data">服务态度良好，洗的很干净！服务态度良好，务态度良好，洗的很干净！服务态度良好，洗的很干净！服务态度良好，洗的很干净！干净！</div>
+                        <div class="right-colon">”</div>
+                        <div class="item">
+                            <span id="ServiceItems">洗鞋服务</span>
+                            <span id="comment-date">2016-1-12</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="comment">
+                    <div class="comment-bg">
+                        <h4>广州用户 157*****7529</h4>
+                        <div class="left-colon">“</div>
+                        <div class="comment-data">服务态度良好，洗的很干净！服务态度良好，务态度良好，洗的很干净！服务态度良好，洗的很干净！服务态度良好，洗的很干净！干净！</div>
+                        <div class="right-colon">”</div>
+                        <div class="item">
+                            <span id="ServiceItems">洗鞋服务</span>
+                            <span id="comment-date">2016-1-12</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="more-comment">
+                <a href="Comment.html">
+                    <h4>[更多评价]</h4>
+                </a>
+            </div>
+
+        </div>
+
+
+
+
+      
+    </div>
+
+    <!--底部菜单栏-->
+    <embed id="Footer" type="text/html" src="_Footer.html" />
+
+</body>
+</html>

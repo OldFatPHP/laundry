@@ -1,0 +1,176 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0 minimal-ui" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>充值确认</title>
+    <style>
+        body {
+            background-color: #f0f0f0;
+            font-family: "Microsoft YaHei", Times, serif;
+            margin: 0;
+            padding: 0;
+            font-size: 16px;
+            color: #1a1a1a;
+            text-align: center;
+        }
+        .value-div{
+            height:100px;
+            background-color:#fff;
+            padding-top:25px
+        }
+            .value-div h5{
+                margin:0;
+                font-weight:normal;
+            }
+        .value img{
+            width:25px;
+            margin-bottom:-5px;
+        }
+        .value {
+            color: #3b9af2;
+            font-size: 18px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            
+        }
+        .largess{
+            font-size:10px;
+            color:#a5b2b2;
+        }
+        .largess span{
+            color:#ffb440;
+            margin-left:5px;
+        }
+        .way-div{
+            background-color:#fff;
+            height:40px;
+        }
+        table{
+            width:100%;
+            background-color:#fff;
+            margin-top:20px;
+            margin-bottom:33px;
+        }
+        caption{
+            text-align:left;
+            font-size:14px;
+            height:25px;
+            text-indent:10px;
+        } 
+        th {
+            width: 30px;
+            height: 45px;
+        }
+        th img{
+            width:100%;
+        }
+        td {
+            font-size: 14px;
+            text-align: left;
+            border-bottom: 1px solid #ededed;
+        }
+        tr:nth-child(2) td{
+            border-bottom:none;
+        }
+        .choose{
+            color:#00dbf5;
+            float:right;
+            margin-right:20px;
+            display:none;
+        }
+        .chosen {
+            color: #00dbf5;
+            float: right;
+            margin-right: 20px;
+            display: block;
+        }
+        button{
+            width:90%;
+            border:none;
+            outline:none;
+            background-color:#00dbf5;
+            color:#fff;
+            font-size:15px;
+            height:38px;
+            border-radius:10px;
+        }
+        #telText{
+            outline:none;
+            display:none;
+            border:none;
+            font-size:14px;
+            text-indent:10px;
+        }
+    </style>
+    <script>
+        function choose(x) {//选择支付方式
+            var choose = x + "Choose";
+            document.getElementById("wetchatpayChoose").className = "choose";
+            document.getElementById("anotherpayChoose").className = "choose";
+            if (x == "anotherpay") {//如果选择他人支付，则显示文本框
+                document.getElementById("telText").style.display = "inline-block";
+            }
+            else {
+                document.getElementById("telText").style.display = "none";
+
+            }
+            document.getElementById(choose).className = "chosen";
+        }
+    </script>
+</head>
+<body>
+    <div class="value-div">
+        <h5>充值金额</h5>
+        <div class="value">
+            <img src="images/money.png" /><span>500.00</span>
+        </div>
+        <div class="largess">赠送金额<span>¥100.00</span></div>
+    </div>
+    <table>
+        <caption>支付方式</caption>
+        <tr>
+            <th><img src="images/Alipay.png" /></th>
+            <td id="wetchatpay" onclick="choose(this.id)">
+                <div>
+                    支付宝支付
+                    <span id="wetchatpayChoose" class="chosen">✔</span>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th><img src="images/pay-for-another.png" /></th>
+            <td id="anotherpay" onclick="choose(this.id)">
+                <div>
+                    他人代付<input id="telText" type="text"placeholder="请输入代付手机号码"/>
+                    <span id="anotherpayChoose" class="choose">✔</span>
+                </div>
+            </td>
+        </tr>
+
+    </table>
+
+
+
+
+    <button onclick="confirm()">需支付500.00元</button>
+    <script>
+        function confirm() {
+            var ifanother = document.getElementById("telText").style.display;
+            if (ifanother == "inline-block") {
+                var re = /^1\d{10}$/;
+                var telnum = document.getElementById("telText").value;
+                if (re.test(telnum)) {
+                    alert("已通知对方，当对方确认支付时，充值成功~");
+                }
+                else {
+                    alert("请填写正确的手机号码！");
+                }
+            }
+            else {
+                alert("充值成功！");
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,165 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0 minimal-ui" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>e袋洗</title>
+    <style>
+        body{
+            padding:0;
+            margin:0;
+            text-align:center;
+            background-color:#f0f0f0;
+            font-size:14px;
+        }
+        ul {
+            list-style: none;
+            background-color: #fff;
+            text-align: center;
+            padding: 0;
+            margin: 0;
+            margin-bottom:10px;
+        }
+
+        .nav ul {
+            height: 40px;
+            font-size: 0; /* 用于消除inline-block间的空格 */
+            border-bottom: 1px solid #e9ebf3;
+            -webkit-text-size-adjust: none; /* 用于消除inline-block间的空格 */
+        }
+
+        .nav li {
+            display: inline-block;
+            font-size: 16px;
+            padding: 8px 0;
+            margin: 0;
+            width: 22%;
+            cursor: default;
+        }
+
+        #kind3, #kind4 {
+            width: 27%;
+        }
+        .nav .active {
+            border-bottom: 2px solid #40DDD1;
+            color: #40DDD1;
+        }
+        table {
+            width: 95%;
+            background-color: #fff;
+            border-collapse: collapse;
+            border: none;
+            margin-left: auto;
+            margin-right: auto;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            margin-bottom: 10px;
+            margin-top:3px;
+        }
+        th{
+            background-color:#00dbf5;
+            color:white;
+            height:30px;
+            
+        }
+        table th:nth-child(1) {
+            border-top-left-radius: 10px;
+            width:50%;
+        }
+        table th:nth-child(3) {
+            width: 30%;
+            border-top-right-radius: 10px;
+        }
+        td {
+            height: 30px;
+            border: 1px solid #dcdcdc;
+        }
+        .data-kind{
+            display:none;
+        }
+    </style>
+    <script>
+        function choose(x) {
+            for (var i = 1; i <= 4; i++) {
+                var id = "kind" + i;
+                document.getElementById(id).className = "header-li";
+                var dataid = "datakind" + i;
+                document.getElementById(dataid).style.display = "none";
+            }
+            document.getElementById(x).className = "active";
+            document.getElementById("data" + x).style.display = "block";
+        }
+    </script>
+</head>
+<body>
+    <div class="nav">
+        <ul>
+            <li id="kind1" class="active" onclick="choose(this.id);">洗衣</li>
+
+            <li id="kind2" onclick="choose(this.id);">洗鞋</li>
+
+            <li id="kind3" onclick="choose(this.id);">洗家居</li>
+            <li id="kind4" onclick="choose(this.id);">奢侈品</li>
+
+
+        </ul>
+    </div>
+    <div id="datakind1">
+        <table>
+            <tr><th>上衣</th><th>价格</th><th>洗护周期</th></tr>
+            <tr><td>衬衫</td><td>48.0元</td><td>11天</td></tr>
+            <tr><td>衬衫</td><td>48.0元</td><td>11天</td></tr>
+            <tr><td>衬衫</td><td>48.0元</td><td>11天</td></tr>
+            <tr><td>衬衫</td><td>48.0元</td><td>11天</td></tr>
+        </table>
+        <table>
+            <tr><th>上衣</th><th>价格</th><th>洗护周期</th></tr>
+            <tr><td>衬衫</td><td>48.0元</td><td>11天</td></tr>
+            <tr><td>衬衫</td><td>48.0元</td><td>11天</td></tr>
+            <tr><td>衬衫</td><td>48.0元</td><td>11天</td></tr>
+            <tr><td>衬衫</td><td>48.0元</td><td>11天</td></tr>
+        </table>
+    </div>
+    <div id="datakind2" class="data-kind">
+        <table>
+            <tr><th>家纺</th><th>价格</th><th>洗护周期</th></tr>
+            <tr><td>毛巾</td><td>48.0元</td><td>11天</td></tr>
+            <tr><td>毛巾</td><td>48.0元</td><td>11天</td></tr>
+            <tr><td>毛巾</td><td>48.0元</td><td>11天</td></tr>
+            <tr><td>毛巾</td><td>48.0元</td><td>11天</td></tr>
+        </table>
+        
+    </div>
+    <div id="datakind3" class="data-kind">
+        <table>
+            <tr><th>洗鞋</th><th>价格</th><th>洗护周期</th></tr>
+            <tr><td>运动鞋</td><td>48.0元</td><td>11天</td></tr>
+            <tr><td>运动鞋</td><td>48.0元</td><td>11天</td></tr>
+            <tr><td>运动鞋</td><td>48.0元</td><td>11天</td></tr>
+            <tr><td>运动鞋</td><td>48.0元</td><td>11天</td></tr>
+            <tr><td>运动鞋</td><td>48.0元</td><td>11天</td></tr>
+            <tr><td>运动鞋</td><td>48.0元</td><td>11天</td></tr>
+        </table>
+    </div>
+    <div id="datakind4" class="data-kind">
+        <table>
+            <tr><th>鞋靴洗护</th><th>价格</th><th>洗护周期</th></tr>
+            <tr><td>鞋（不限材质）</td><td>48.0元</td><td>11天</td></tr>
+            <tr><td>鞋（不限材质）</td><td>48.0元</td><td>11天</td></tr>
+            <tr><td>鞋（不限材质）</td><td>48.0元</td><td>11天</td></tr>
+        </table>
+        <table>
+            <tr><th>皮质服饰洗护</th><th>价格</th><th>洗护周期</th></tr>
+            <tr><td>皮衣（光面）</td><td>48.0元</td><td>11天</td></tr>
+            <tr><td>皮衣（光面）</td><td>48.0元</td><td>11天</td></tr>
+            <tr><td>皮衣（光面）</td><td>48.0元</td><td>11天</td></tr>
+        </table>
+        <table>
+            <tr><th>皮质饰品洗护</th><th>价格</th><th>洗护周期</th></tr>
+            <tr><td>皮带</td><td>48.0元</td><td>11天</td></tr>
+            <tr><td>皮带</td><td>48.0元</td><td>11天</td></tr>
+            <tr><td>皮带</td><td>48.0元</td><td>11天</td></tr>
+        </table>
+    </div>
+</body>
+</html>

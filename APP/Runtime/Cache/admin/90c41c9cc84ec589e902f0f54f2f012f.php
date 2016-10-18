@@ -43,9 +43,9 @@
 						<th width="50">原价</th>
 						<th width="50">优惠金额</th>
 						<th width="50">实际收款</th>
-						<th width="100">订单反馈图片</th>
-						<th width="100">订单反馈内容</th>
+						<th width="120">订单反馈</th>
 						<th width="60">订单状态</th>
+						<th width="60">操作</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -59,9 +59,13 @@
 						<td><?php echo ($vo["orderOldPrice"]); ?></td>
 						<td><?php echo ($vo["orderCouponCut"]); ?></td>
 						<td><?php echo ($vo["orderPrice"]); ?></td>
-						<td class="td-manage"><a href="<?php echo U('',array('id' => $vo['orderId']));?>" class="btn btn-sm btn-link" onClick="return rec()">上传</a></td>
-						<td class="td-manage"><a href="<?php echo U('',array('id' => $vo['orderId']));?>" class="btn btn-sm btn-link" onClick="return rec()">编辑</a></td>
+						<td class="td-manage">
+							<?php if($vo['orderFeedbackContent'] == '无'): ?><a href="<?php echo U(GROUP_NAME . '/Order/feedbackShow', array('orderId' => $vo['orderId']));?>" class="btn btn-sm btn-link" onClick="return rec()">编辑反馈内容</a>
+							<?php else: ?>
+								<a href="<?php echo U(GROUP_NAME . '/Order/showFeedback', array('orderId'=>$vo['orderId']));?>" title="点击查看反馈内容">已反馈</a><?php endif; ?>
+						</td>
 						<td class="td-status"><span class="label label-success radius">待取件</span></td>
+						<td><a href="<?php echo U(GROUP_NAME . '/Order/confirmOrder', array('orderId' => $vo['orderId']));?>" title="接单" onclick="jiedan()">接单</a> </td>
 					</tr><?php endforeach; endif; ?>
 				</tbody>
 			</table>
@@ -75,6 +79,16 @@
 <script type="text/javascript" src="__PUBLIC__/lib/datatables/1.10.0/jquery.dataTables.min.js"></script> 
 <script type="text/javascript" src="__PUBLIC__/lib/zTree/v3/js/jquery.ztree.all-3.5.min.js"></script> 
 <script type="text/javascript" src="__PUBLIC__/static/h-ui/js/H-ui.js"></script> 
-<script type="text/javascript" src="__PUBLIC__/static/h-ui.admin/js/H-ui.admin.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/static/h-ui.admin/js/H-ui.admin.js"></script>
+<script type="text/javascript">
+	function jiedan(){
+		var mymessage=confirm("你确定接单吗？");
+		if (mymessage==true) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+</script>
 </body>
 </html>

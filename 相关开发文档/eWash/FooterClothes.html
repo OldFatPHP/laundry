@@ -1,0 +1,44 @@
+﻿<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0 minimal-ui" />
+<link href="css/ServerDiv.css" rel="stylesheet" />
+<script src="js/buy.js"></script>
+<script>
+    window.onload = function () {
+        //还原按钮样式，改变被点击的按钮的样式
+        var Nav = document.getElementById('SecondNav').contentWindow;
+        Nav.document.getElementById("ClothesId1").className = "";
+        Nav.document.getElementById("ClothesId2").className = "";
+        Nav.document.getElementById("ClothesId4").className = "";
+        Nav.document.getElementById("ClothesId5").className = "";
+        Nav.document.getElementById("ClothesId3").className = "active";
+    };
+</script>
+
+<iframe src="SecondNav.html" frameborder="0" id="SecondNav" scrolling="no"></iframe>
+
+<!--裙装裤装-->
+<div id="FooterClothesDiv" class="window-div">
+    <div id="windowC1" class="show-window" onclick="buy(this.id)">
+        <div id="buyNumC1" class="buy-num">0</div>
+        <img src="images/goods11.png" id="goodsImgC1" />
+        <h4 id="goodsNameC1">牛仔裤</h4>
+        <h4 class="price"><span class="small-rmb">￥</span><span id="goodspriceC1">12.0</span></h4>
+    </div>
+    <div id="windowC2" class="show-window" onclick="buy(this.id)">
+        <div id="buyNumC2" class="buy-num">0</div>
+        <img src="images/goods11.png" id="goodsImgC2" />
+        <h4 id="goodsNameC2">牛仔裤</h4>
+        <h4 class="price"><span class="small-rmb">￥</span><span id="goodspriceC2">12.0</span></h4>
+    </div>
+    <div id="windowC3" class="show-window" onclick="buy(this.id)">
+        <div id="buyNumC3" class="buy-num">0</div>
+        <img src="images/goods11.png" id="goodsImgC3" />
+        <h4 id="goodsNameC3">牛仔裤</h4>
+        <h4 class="price"><span class="small-rmb">￥</span><span id="goodspriceC3">12.0</span></h4>
+    </div>
+    <div id="windowC4" class="show-window" onclick="buy(this.id)">
+        <div id="buyNumC4" class="buy-num">0</div>
+        <img src="images/goods11.png" id="goodsImgC4" />
+        <h4 id="goodsNameC4">牛仔裤</h4>
+        <h4 class="price"><span class="small-rmb">￥</span><span id="goodspriceC4">12.0</span></h4>
+    </div>
+</div>

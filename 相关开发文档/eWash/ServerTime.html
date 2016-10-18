@@ -1,0 +1,168 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0 minimal-ui" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>选取服务时间</title>
+    <style>
+        /* 1. General */
+        body {
+            background-color: #f0f0f0;
+            overflow-x: hidden;
+            margin: 0px;
+            color: #1a1a1a;
+            font-family: "Microsoft YaHei", Times, serif;
+            text-align: center;
+            font-size: 15px;
+        }
+
+        .mainbody {
+            width: 100%;
+            text-align: center;
+            max-width: 700px;
+            margin-left: auto;
+            background-color:#fff;
+            margin-right: auto;
+        }
+        .date-div{
+            width:100%;
+            overflow-x:scroll;
+        }
+        .date-bg {
+            width: 180%;
+            height: 80px;
+            background-color: #f7feff;
+        }
+        .date-block, .date-block-active {
+            display: inline-block;
+            width: 13.3%;
+            margin-top: 10px;
+            cursor:default;
+        }
+        .date {
+            border: 1px solid #f7feff;
+            width: 100%;
+            height: 48px;
+            margin-bottom: -12px;
+        }
+        .date-block-active div {
+            background-color: #fff;
+            color: #7bedfb;
+            border-radius: 6px;
+            border: 1px solid #7bedfb;
+            width: 100%;
+            height: 48px;
+            padding-top: 5px;
+            margin-bottom: -12px;
+        }
+        .date-block-active img {
+            width: 10px;
+            position: relative;
+        }
+        .date-block img {
+            width: 10px;
+            position: relative;
+            visibility:hidden;
+        }
+        table {
+            width: 96%;
+            border-collapse: collapse;
+            margin-left:auto;
+            margin-right:auto;
+            margin-top:10px;
+            margin-bottom:10px;
+        }
+        td{
+            width:33.3%;
+            border:1px solid #dcdcdc;
+            height:70px;
+            cursor:default;
+        }
+        button{
+            border:none;
+            outline:none;
+            color:#fff;
+            background-color:#7bedfb;
+            height:60px;
+            width:95%;
+            border-radius:6px;
+            font-size:16px;
+        }
+        .time-active {
+            border: 2px solid #7bedfb;
+            color: #7bedfb;
+        }
+    </style>
+    <script>
+        var datechosed="今天8月29日";//选择日期的值
+        var timechosed="尽快取90分钟之内上门";//选择时间的值
+        function choosedate(x) {//选择日期
+            for (var i = 1; i <= 7; i++) {
+                var data = "date" + i;
+                document.getElementById(data).className = "date-block";
+            }
+            for (var j = 1; j <= 15; j++) {
+                var time = "time" + j;
+                document.getElementById(time).className = "";
+            }
+            document.getElementById(x).className = "date-block-active";
+            datechosed = document.getElementById(x).innerText;
+
+        }
+        function choosetime(x) {//选择时间
+            for (var j = 1; j <= 15; j++) {
+                var time = "time" + j;
+                document.getElementById(time).className = "";
+            }
+            timechosed = document.getElementById(x).innerText;
+            document.getElementById(x).className = "time-active";
+        }
+        function btn1() {
+            window.location.href = encodeURI(encodeURI('Appointment.html?datechosed=' + datechosed + "&timechosed=" + timechosed));
+        }
+    </script>
+</head>
+<body>
+    <div class="mainbody">
+        <div class="date-div">
+            <div class="date-bg">
+                <div id="date1" class="date-block-active" onclick="choosedate(this.id)"><div class="date">今天<br />8月29日</div><img src="images/jiao.png" /></div>
+                <div id="date2" class="date-block" onclick="choosedate(this.id)"><div class="date">明天<br />8月30日</div><img src="images/jiao.png" /></div>
+                <div id="date3" class="date-block" onclick="choosedate(this.id)"><div class="date">周三<br />8月31日</div><img src="images/jiao.png" /></div>
+                <div id="date4" class="date-block" onclick="choosedate(this.id)"><div class="date">周四<br />9月1日</div><img src="images/jiao.png" /></div>
+                <div id="date5" class="date-block" onclick="choosedate(this.id)"><div class="date">周五<br />9月2日</div><img src="images/jiao.png" /></div>
+                <div id="date6" class="date-block" onclick="choosedate(this.id)"><div class="date">周六<br />9月3日</div><img src="images/jiao.png" /></div>
+                <div id="date7" class="date-block" onclick="choosedate(this.id)"><div class="date">周日<br />9月4日</div><img src="images/jiao.png" /></div>
+            </div>
+        </div>
+            <table>
+                <tr>
+                    <td id="time1" class="time-active" onclick="choosetime(this.id)">尽快取<br />90分钟之内上门</td>
+                    <td id="time2" onclick="choosetime(this.id)">10:00-11:00</td>
+                    <td id="time3" onclick="choosetime(this.id)">11:00-12:00</td>
+                </tr>
+                <tr>
+                    <td id="time4" onclick="choosetime(this.id)">12:00-13:00</td>
+                    <td id="time5" onclick="choosetime(this.id)">13:00-14:00</td>
+                    <td id="time6" onclick="choosetime(this.id)">14:00-15:00</td>
+                </tr>
+                <tr>
+                    <td id="time7" onclick="choosetime(this.id)">15:00-16:00</td>
+                    <td id="time8" onclick="choosetime(this.id)">16:00-17:00</td>
+                    <td id="time9" onclick="choosetime(this.id)">17:00-18:00</td>
+                </tr>
+                <tr>
+                    <td id="time10" onclick="choosetime(this.id)">18:00-19:00</td>
+                    <td id="time11" onclick="choosetime(this.id)">19:00-20:00</td>
+                    <td id="time12" onclick="choosetime(this.id)">20:00-21:00</td>
+                </tr>
+                <tr>
+                    <td id="time13" onclick="choosetime(this.id)">21:00-22:00</td>
+                    <td id="time14" onclick="choosetime(this.id)">22:00-23:00</td>
+                    <td id="time15" onclick="choosetime(this.id)">23:00-24:00</td>
+                </tr>
+            </table>
+        <button onclick="btn1()">确定选择</button>
+    </div>
+</body>
+</html>

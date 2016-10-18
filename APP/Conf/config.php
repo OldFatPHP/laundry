@@ -16,7 +16,7 @@ return array(
     'DB_HOST' => 'localhost',
     'DB_NAME' => 'laundry',       //此处的数据库名要对应！！
     'DB_USER' => 'root',
-    'DB_PWD'  => '',       //此处的数据库密码要对应！！
+    'DB_PWD'  => 'root',       //此处的数据库密码要对应！！
     'DB_PREFIX' => '',
 
     'show_page_trace'=>ture,

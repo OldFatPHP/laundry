@@ -269,5 +269,53 @@ class OrderAction extends CommonAction{
            $this->assign('page',$show);// 赋值分页输出
            $this -> display('endRefund');
     }
+    
+    /**
+     * 订单编辑反馈页面显示
+     */
+    public function feedbackShow () {
+    	$_SESSION['orderId'] = I('orderId');
+    	$this->display();
+    }
+    
+    /**
+     * 订单反馈内容提交
+     */
+    public function feedBack () {
+    	$where['orderId'] = $_SESSION['orderId'];
+    	$orderData['orderFeedbackContent'] = I('orderFeedbackContent');
+        $res = M('order')->where($where)->save($orderData);
+        if ($res) {
+            unset($_SESSION['orderId']);
+            $this->success('编辑反馈成功', 'index');
+        }else {
+            $this->error('编辑反馈失败，请重新编辑');
+        }
+    }
+
+    /**
+     * 接单按钮，确认接单后修改订单状态
+     */
+    public function confirmOrder () {
+        $where['orderId'] = I('orderId');
+        $map['orderStatus'] = 3;
+        $res = M('order')->where($where)->save($map);
+        if ($res) {
+            $this->success('接单成功');
+        }else {
+            $this->error('接单出错，请重新接单...');
+        }
+    }
+
+    /**
+     * 显示特定订单的反馈内容
+     */
+    public function showFeedback () {
+        $where['orderId'] = I('orderId');
+        $orderData = M('order')->where($where)->field('orderId,orderFeedbackContent')->select();
+        //dump($orderData);die;
+        $this->orderData = $orderData;
+        $this->display();
+    }
 }
 ?>

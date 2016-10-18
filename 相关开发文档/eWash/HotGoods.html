@@ -1,0 +1,36 @@
+﻿<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0 minimal-ui" />
+<link href="css/ServerDiv.css" rel="stylesheet" />
+<script src="js/buy.js"></script>
+<script>
+    window.onload = function () {
+        //还原按钮样式，改变被点击的按钮的样式
+        var Nav = document.getElementById('SecondNav').contentWindow;
+        Nav.document.getElementById("ClothesId1").className = "";
+        Nav.document.getElementById("ClothesId2").className = "";
+        Nav.document.getElementById("ClothesId3").className = "";
+        Nav.document.getElementById("ClothesId4").className = "";
+        Nav.document.getElementById("ClothesId5").className = "active";
+    };
+</script>
+
+<iframe src="SecondNav.html" frameborder="0" id="SecondNav" scrolling="no"></iframe>
+
+    <!--爆品-->
+<div id="hotDiv" class="big-div">
+    <div class="hot-div">
+        <div id="windowE1" class="hot-goods" onclick="buy(this.id)">
+            <div id="buyNumE1" class="buy-num">0</div>
+            <img src="images/goods13.png" id="goodsImgE1" />
+            <h4 id="goodsNameE1">衬衫5件洗</h4>
+            <h4 class="price"><span class="small-rmb">￥</span><span id="goodspriceE1">12.0</span></h4>
+            <h5>￥60</h5>
+        </div>
+        <div class="hot-intro-div">
+            <div class="vertical-line"></div>
+            <div class="hot-intro">
+                <h4 class="intro-header">套餐介绍：</h4>
+                <h4>衬衫 x5</h4>
+            </div>
+        </div>
+    </div>
+</div>

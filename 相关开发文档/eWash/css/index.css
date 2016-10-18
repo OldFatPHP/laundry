@@ -1,0 +1,256 @@
+/* 1. General */
+body{
+	background-color:#F5F9FA;
+	overflow-x:hidden;
+	margin:0px;
+    color:#1a1a1a;
+	font-family:"Microsoft YaHei", Times, serif;
+    text-align:center;
+    font-size:14px;
+    padding:0;
+    width:100%;
+}
+.mainbody{
+padding-bottom:35px;
+text-align:center;
+width:100%;
+max-width:600px;
+margin-left:auto;
+margin-right:auto;
+}
+a{
+    color:#1a1a1a;
+}
+/* 广告滑动窗口 */
+      .clear{
+            *zoom:1;
+        }
+        .clear:after{
+            visibility: none;
+            content:"";
+            display:block;
+            clear:both;
+            height:0;
+        }
+        #wrap{
+            width:100%;
+            height:146px;
+            margin:0 auto;
+            position:relative;
+            background-color:pink;
+            overflow:hidden;
+        }
+        #inner{
+            width:1000%;
+            position:absolute;
+            left:0;
+            top:0;
+        }
+            #inner img {
+                width: 10%;
+                height: 146px;
+                float: left;
+            }
+        .paganation{
+            width:100%;
+            position:absolute;
+            bottom:10px;
+            text-align:center;
+        }
+        .paganation div{
+            width:8px;
+            height:8px;
+            background-color:#fff;
+            opacity:0.4;
+            border:1px solid #fff;
+            color:red;
+            display:inline-block;
+            border-radius:50%;
+            cursor:pointer;
+            font-size:0;
+        }
+        .paganation .selected{
+            border:1px solid #fff;
+            opacity:1;
+        }
+        .arrow{
+            position:absolute;
+            top:0;
+            width:30px;
+            height:146px;
+            line-height:146px;
+            text-align:center;
+            color:red;
+            cursor:pointer;
+        }
+        #right{
+            right:0;
+        }
+        .arrow:hover{
+            background:rgba(0,0,0,0.5);
+        }
+        .loction-btn{
+            height:30px;
+            line-height:30px;
+            width:83px;
+            border-radius:10px;
+            background-color:#fff;
+            position:relative;
+            margin-left:auto;
+            margin-right:auto;
+            font-size:14px;
+            opacity:0.6;
+            margin-top:20px;
+        }
+
+/*商品展示模块*/
+#show .show-header{
+text-align:center;
+background:#fdfdfd;
+height:40px;
+margin-bottom:2px;
+}
+.show-header h5{
+margin:0;
+line-height:40px;
+color:#bbb;
+font-weight:normal;
+font-size:12px;
+}
+.show-main{
+height:162px;
+font-size:14px;
+}
+.show-window{
+width:49.3%;
+height:160px;
+background:#fff;
+float:left;
+
+border-right:2px solid #F5F9FA;
+border-bottom:2px solid #F5F9FA;
+text-align: center;
+
+}
+.show-window img{
+width:90px;
+border:0;
+}
+.show-window h3{
+font-weight:normal;
+font-size:16px;
+}
+.recharge img{
+height:40px;
+width:100%;
+margin-top:2px;
+margin-bottom:4px;
+border:0;
+}
+
+/*关于我们*/
+#about-us{
+height:120px;
+background:#fff;
+width:100%;
+}
+.about-us{
+padding-top:15px;
+float:left;
+width:25%;
+height:30px;
+text-align:center;
+color:#8C8C8C;
+}
+.about-us img{
+height:50px;
+border:0;
+}
+.about-us h4{
+    font-size:15px;
+    font-weight:normal;
+    margin-top:15px;
+}
+/* 评价模块 */
+.comment-big-bg{
+height:200px;
+background:url(../images/comment-bg.jpg) no-repeat;
+background-size:100% 100%;
+margin-top:6px;
+padding-top:12px;
+overflow-x:scroll;
+}
+.comment-slider{
+    width:1000%;
+    text-align:left;
+}
+.comment{
+height:140px;
+display:inline-block;
+border:1px solid #fff;
+width:8%;
+margin:0 10px;
+padding:6px;
+}
+.more-comment a{
+text-align:center;
+text-decoration:none;
+color:#fff;
+}
+.more-comment h4{
+    margin-top:8px;
+    margin-bottom:0;
+    font-weight:normal;
+}
+.comment-bg{
+background:rgba(255,255,255,0.7);
+text-align:center;
+height:110px;
+padding:20px;
+}
+.comment-bg h4{
+margin:0;
+font-weight:normal;
+}
+.left-colon{
+font-size:25px;
+font-weight:bold;
+text-align:left;
+color:gray;
+}
+.right-colon{
+font-size:25px;
+font-weight:bold;
+text-align:right;
+color:gray;
+
+}
+.comment-data{
+width:86%;
+text-align:left;
+padding: 0 7%;
+white-space:nowrap;
+overflow:hidden;
+text-overflow:ellipsis; 
+font-size:1em;
+
+}
+.item{
+text-align:right;
+}
+
+#Footer{
+    background-color: #fff;
+        height: 40px;
+        z-index: 999;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        _position: absolute; /* for IE6 */
+        border:none;
+        _top: expression(documentElement.scrollTop + documentElement.clientHeight-this.offsetHeight); /* for IE6 */
+        overflow: visible;
+        border-top: 1px solid #E6E6E6;
+        padding-top: 8px;
+}

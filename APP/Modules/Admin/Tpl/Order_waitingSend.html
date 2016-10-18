@@ -56,7 +56,6 @@
 						<th width="50">原价</th>
 						<th width="50">优惠金额</th>
 						<th width="50">实际收款</th>
-						<th width="100">订单反馈图片</th>
 						<th width="100">订单反馈内容</th>
 						<th width="60">订单状态</th>
 						<th width="100">操作</th>
@@ -74,8 +73,7 @@
 						<td>{$vo.orderOldPrice}</td>
 						<td>{$vo.orderCouponCut}</td>
 						<td>{$vo.orderPrice}</td>
-						<td>{$vo.orderFeedbackImage}</td>
-						<td>{$vo.orderFeedbackContent}</td>
+						<td><a href="{:U(GROUP_NAME . '/Order/showFeedback', array('orderId'=>$vo['orderId']))}" title="点击查看反馈内容">已反馈</a> </td>
 						<td class="td-status"><span class="label label-success radius">待派件</span></td>
 						<td class="td-manage"><a href="{:U('send',array('id' => $vo['orderId']))}" class="btn btn-sm btn-link" onClick="return rec()">已派件</a></td>
 					</tr>
