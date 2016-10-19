@@ -12,12 +12,16 @@
 
         public function couponList() {
             $where['couponDelete'] = 1;
+            $where['couponKind'] = 1;
             $page = paging('coupon', $where, 5);
             $show = $page -> show();
             $limit = $page->firstRow.",".$page->listRows;
             $couponData = M('coupon') -> where($where) -> limit($limit) -> order('couponId desc') -> select();
             $this -> assign('page', $show);
             $this -> assign('couponData', $couponData);
+            $where['couponKind'] = 2;
+            $specialCoupon = M('coupon')->where($where)->select();
+            $this->assign('specialCoupon', $specialCoupon);
             $this -> display();
         }
 
@@ -53,6 +57,39 @@
                 $this -> success('修改成功');
             }else {
                 $this -> error('修改失败，请重新修改');
+            }
+        }
+
+        /**
+         * 普通优惠券编辑
+         */
+        public function couponEditPage () {
+            $where['couponId'] = I('couponId');
+            $couponData = M('coupon')->where($where)->find();
+            $this->assign('couponData', $couponData);
+            $this->display();
+        }
+        /**
+         * 特殊优惠券编辑
+         */
+        public function specialCouponEditPage () {
+            $where['couponId'] = I('couponId');
+            $couponData = M('coupon')->where($where)->find();
+            $this->assign('couponData', $couponData);
+            $this->display();
+        }
+
+        /**
+         * 优惠券修改保存功能
+         */
+        public function couponEditSave () {
+            $where['couponId'] = I('couponId');
+            $couponData = $_POST;
+            $res = M('coupon')->where($where)->save($couponData);
+            if ($res) {
+                $this->success('修改成功', 'couponList');
+            }else {
+                $this->error('操作异常或未做修改，请重新修改。');
             }
         }
     }

@@ -9,20 +9,21 @@
             if(!$this->isPost()){
                 $this->error('用户名或者是密码错误',U('index'));
             }       	
-                $name = I('name');
+                $where['adminName'] = I('name');
                 $password = I('password');
-                if($name =='' || $password ==''){
+                if($where['adminName'] =='' || $password ==''){
                     $this->error('用户名或者密码不能为空',U('index'));
-                }
-                $data[0]['name']="123";   //这里是固定登录账号，以后要改为顾客账号；
-                $data[0]['password']="123";   //这里是固定登录账号；
-                                        //客户登录账号就是495151240，密码123093176
-                if(!empty($data)  && $data[0]['name'] == ($name) && $data[0]['password'] == ($password)){  
-                    session('name',$data[0]['name']);
-                    session('password',$data[0]['password']);
-                    $this->success('登录成功',U('Admin/Index/index'));//这里的U方法的路径有点奇怪！
-                } else {
-                    $this->error('用户名或者密码错误!');
+                } else{
+                    $isEmp = M('admin')->where($where)->select();
+                    if ($isEmp != '') {
+                        if ($isEmp[0]['adminPassword'] == $password) {
+                            session('name',$isEmp[0]['adminName']);
+                            session('password',$isEmp[0]['adminPassword']);
+                            $this->success('登录成功', U('Admin/Index/index'));
+                        }
+                    }else {
+                        $this->error('用户名或者密码错误!');
+                    }
                 }
                            
         }
