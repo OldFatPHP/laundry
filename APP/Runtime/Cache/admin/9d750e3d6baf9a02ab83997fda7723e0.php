@@ -63,7 +63,7 @@
 			</table>
 		</div>
 	<br/>
-		<div style="float:right "><?php echo ($page); ?></div>
+		<div>　<?php echo ($page); ?></div>
 	</div>
 </div>
 <script type="text/javascript" src="__PUBLIC__/lib/jquery/1.9.1/jquery.min.js"></script> 

@@ -44,16 +44,29 @@
 				<input type="text" class="input-text" value="<?php echo ($couponData["couponDetail"]); ?>" placeholder="优惠券详情" id="" name="couponDetail" required>
 			</div>
 		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>金额/物品：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="<?php echo ($couponData["couponFull"]); ?>" placeholder="金额/物品" id="" name="couponFull" required>
+		<?php if($couponData['couponId'] == 1): ?><div class="row cl">
+				<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>金额：</label>
+				<div class="formControls col-xs-8 col-sm-9">
+					<input type="text" class="input-text" value="<?php echo ($couponData["couponFull"]); ?>" placeholder="金额" id="" name="couponFull" required>
+				</div>
 			</div>
-		</div>
+			<div class="row cl">
+				<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>件数：</label>
+				<div class="formControls col-xs-8 col-sm-9">
+					<input type="text" class="input-text" value="<?php echo ($couponData["couponCut"]); ?>" placeholder="件数" id="" name="couponCut" required>
+				</div>
+			</div>
+		<?php else: ?>
+			<div class="row cl">
+				<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>产品名称：</label>
+				<div class="formControls col-xs-8 col-sm-9">
+					<input type="text" class="input-text" value="<?php echo ($couponData["couponFull"]); ?>" placeholder="产品名称" id="" name="couponFull" required>
+				</div>
+			</div><?php endif; ?>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>优惠券有效期至：</label>
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>优惠券有效天数：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="date" id="datemin" value="<?php echo ($couponData["couponValidity"]); ?>" name="couponValidity" class="input-text Wdate" required>
+				<input type="text" class="input-text" id="" value="<?php echo ($couponData["couponTime"]); ?>" name="couponTime" class="input-text Wdate" required>
 			</div>
 		</div>
 		<div class="row cl">
@@ -62,15 +75,12 @@
 				<select name="couponStatus" class="select">
 					<?php if($couponData['couponStatus'] == 0): ?><option value="0" selected>不可使用</option>
 						<option value="1" >正常</option>
-						<option value="2" >已过期</option>
 					<?php elseif($couponData['couponStatus'] == 1): ?>
 						<option value="0" >不可使用</option>
 						<option value="1" selected>正常</option>
-						<option value="2" >已过期</option>
 					<?php else: ?>
 						<option value="0" >不可使用</option>
-						<option value="1" >正常</option>
-						<option value="2" selected>已过期</option><?php endif; ?>
+						<option value="1" >正常</option><?php endif; ?>
 				</select>
 				</span> </div>
 		</div>

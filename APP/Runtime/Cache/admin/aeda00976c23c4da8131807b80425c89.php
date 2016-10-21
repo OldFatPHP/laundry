@@ -48,7 +48,7 @@
 						<th >详情</th>
 						<th width="100">满</th>
 						<th width="100">减</th>
-						<th width="120">有效期至</th>
+						<th width="120">有效天数</th>
 						<th width="100">状态</th>
 						<th width="100">操作</th>
 					</tr>
@@ -59,44 +59,64 @@
 						<td><?php echo ($couponDataVo["couponDetail"]); ?></td>
 						<td><?php echo ($couponDataVo["couponFull"]); ?></td>
 						<td><?php echo ($couponDataVo["couponCut"]); ?></td>
-						<td><?php echo ($couponDataVo["couponValidity"]); ?></td>
-						<td><?php echo ($couponDataVo["couponStatus"]); ?></td>
+						<td><?php echo ($couponDataVo["couponTime"]); ?></td>
+						<?php if($couponDataVo['couponStatus'] == 0): ?><td style="color: red">【不可使用】</td>
+						<?php else: ?>
+							<td style="color: green">【正常】</td><?php endif; ?>
 						<td><a style="text-decoration:none" class="ml-5" href="<?php echo U(GROUP_NAME . '/Coupon/couponEditPage', array('couponId' => $couponDataVo['couponId']));?>" title="优惠券编辑"><i class="Hui-iconfont">&#xe6df;</i></a> <a style="text-decoration:none" class="ml-5" onClick="return article_del()" href="<?php echo U(GROUP_NAME . '/Coupon/couponDelete', array('couponId' => $couponDataVo['couponId']));?>" title="优惠券删除"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
 					</tr><?php endforeach; endif; else: echo "" ;endif; ?>
 				</tbody>
 			</table>
 		</div>
 	<br/>
-		<div style="float:right "><?php echo ($page); ?></div><br/>
+		<div>　<?php echo ($page); ?></div>
 	<div class="mt-20">
 		<table class="table table-border table-bordered table-bg table-hover table-sort">
 			<thead>
-			<tr class="text-c">
-				<th width="100">名称</th>
-				<th >详情</th>
-				<th width="100">金额/物品</th>
-				<th width="120">有效期至</th>
-				<th width="100">状态</th>
-				<th width="100">操作</th>
-			</tr>
+				<tr class="text-c">
+					<th width="100">名称</th>
+					<th >详情</th>
+					<th width="100">金额</th>
+					<th width="100">件数</th>
+					<th width="120">有效天数</th>
+					<th width="100">状态</th>
+					<th width="100">操作</th>
+				</tr>
 			</thead>
 			<tbody>
 				<tr class="text-c va-m">
 					<td><?php echo ($specialCoupon["0"]["couponName"]); ?></td>
 					<td><?php echo ($specialCoupon["0"]["couponDetail"]); ?></td>
 					<td><?php echo ($specialCoupon["0"]["couponFull"]); ?></td>
+					<td><?php echo ($specialCoupon["0"]["couponCut"]); ?></td>
 					<td><?php echo ($specialCoupon["0"]["couponTime"]); ?></td>
-					<td><?php echo ($specialCoupon["0"]["couponStatus"]); ?></td>
+					<?php if($specialCoupon[0]['couponStatus'] == 0): ?><td style="color: red">【不可使用】</td>
+					<?php else: ?>
+						<td style="color: green">【正常】</td><?php endif; ?>
 					<td><a style="text-decoration:none" class="ml-5" href="<?php echo U(GROUP_NAME . '/Coupon/specialCouponEditPage', array('couponId' => 1));?>" title="优惠券编辑"><i class="Hui-iconfont">&#xe6df;</i></a></td>
 				</tr>
-				<tr class="text-c va-m">
-					<td><?php echo ($specialCoupon["1"]["couponName"]); ?></td>
-					<td><?php echo ($specialCoupon["1"]["couponDetail"]); ?></td>
-					<td><?php echo ($specialCoupon["1"]["couponFull"]); ?></td>
-					<td><?php echo ($specialCoupon["1"]["couponTime"]); ?></td>
-					<td><?php echo ($specialCoupon["1"]["couponStatus"]); ?></td>
-					<td><a style="text-decoration:none" class="ml-5" href="<?php echo U(GROUP_NAME . '/Coupon/specialCouponEditPage', array('couponId' => 2));?>" title="优惠券编辑"><i class="Hui-iconfont">&#xe6df;</i></a></td>
-				</tr>
+			</tbody>
+			<thead>
+			<tr class="text-c">
+				<th width="100">名称</th>
+				<th colspan="2">详情</th>
+				<th width="100">产品名称</th>
+				<th width="120">有效天数</th>
+				<th width="100">状态</th>
+				<th width="100">操作</th>
+			</tr>
+			</thead>
+			<tbody>
+			<tr class="text-c va-m">
+				<td><?php echo ($specialCoupon["1"]["couponName"]); ?></td>
+				<td colspan="2"><?php echo ($specialCoupon["1"]["couponDetail"]); ?></td>
+				<td><?php echo ($specialCoupon["1"]["couponFull"]); ?></td>
+				<td><?php echo ($specialCoupon["1"]["couponTime"]); ?></td>
+				<?php if($specialCoupon[1]['couponStatus'] == 0): ?><td style="color: red">【不可使用】</td>
+					<?php else: ?>
+					<td style="color: green">【正常】</td><?php endif; ?>
+				<td><a style="text-decoration:none" class="ml-5" href="<?php echo U(GROUP_NAME . '/Coupon/specialCouponEditPage', array('couponId' => 2));?>" title="优惠券编辑"><i class="Hui-iconfont">&#xe6df;</i></a></td>
+			</tr>
 			</tbody>
 		</table>
 	</div>

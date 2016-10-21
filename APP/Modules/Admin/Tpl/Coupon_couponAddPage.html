@@ -56,9 +56,9 @@
 			</div>
 		</div>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>优惠券有效期至：</label>
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>优惠券有效天数：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="date" id="datemin" name="couponValidity" class="input-text Wdate" required>
+				<input type="text" class="input-text" id="" name="couponTime" placeholder="优惠券有效天数" class="input-text Wdate" required>
 			</div>
 		</div>
 		<div class="row cl">
@@ -67,7 +67,6 @@
 				<select name="couponStatus" class="select">
 						<option value="0" >不可使用</option>
 						<option value="1" >正常</option>
-						<option value="2" >已过期</option>
 				</select>
 				</span> </div>
 		</div>

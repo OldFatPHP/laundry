@@ -1,4 +1,4 @@
-﻿<!DOCTYPE HTML>
+<?php if (!defined('THINK_PATH')) exit();?>﻿<!DOCTYPE HTML>
 <html>
 <head>
 <meta charset="utf-8">
@@ -33,13 +33,13 @@
 	<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 商品管理 <span class="c-gray en">&gt;</span> 家具用品类 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 	<!-- <div class="page-container">
 		<div class="text-c"> 日期范围：
-			<input type="text" onfocus="WdatePicker({maxDate:'#F{$dp.$D(\'logmax\')||\'%y-%M-%d\'}'})" id="logmin" class="input-text Wdate" style="width:120px;">
+			<input type="text" onfocus="WdatePicker({maxDate:'#F{$dp.$D('logmax')||'%y-%M-%d'}'})" id="logmin" class="input-text Wdate" style="width:120px;">
 			-
-			<input type="text" onfocus="WdatePicker({minDate:'#F{$dp.$D(\'logmin\')}',maxDate:'%y-%M-%d'})" id="logmax" class="input-text Wdate" style="width:120px;">
+			<input type="text" onfocus="WdatePicker({minDate:'#F{$dp.$D('logmin')}',maxDate:'%y-%M-%d'})" id="logmax" class="input-text Wdate" style="width:120px;">
 			<input type="text" name="" id="" placeholder=" 商品名称" style="width:250px" class="input-text">
 			<button name="" id="" class="btn btn-success" type="submit"><i class="Hui-iconfont">&#xe665;</i> 搜商品</button>
 		</div> -->
-		<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a class="btn btn-primary radius" href="{:U(GROUP_NAME . '/Product/productAddPage', array('productUid' => 3))}"><i class="Hui-iconfont">&#xe600;</i> 添加产品</a></span></div>
+		<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a class="btn btn-primary radius" href="<?php echo U(GROUP_NAME . '/Product/productAddPage', array('productUid' => 3));?>"><i class="Hui-iconfont">&#xe600;</i> 添加产品</a></span></div>
 		<div class="mt-20">
 			<table class="table table-border table-bordered table-bg table-hover table-sort">
 				<thead>
@@ -52,19 +52,17 @@
 					</tr>
 				</thead>
 				<tbody>
-					<volist name="householdData" id="householdDataVo">
-					<tr class="text-c va-m">
-						<td>{$householdDataVo.productName}</td>
-						<td><a href="{:U(GROUP_NAME . '/Product/imageUploadPage', array('productId' => $householdDataVo['productId']))}" title="点击修改图片"><img style="width: 50px" src="{$householdDataVo.productImage}"/></a></td>
-						<td>{$householdDataVo.productDetail}</td>
-						<td>{$householdDataVo.productPrice}</td>
-						<td><a style="text-decoration:none" class="ml-5" href="{:U(GROUP_NAME . '/Product/productEditPage', array('productId' => $householdDataVo['productId']))}" title="产品编辑"><i class="Hui-iconfont">&#xe6df;</i></a> <a style="text-decoration:none" class="ml-5" onClick="return article_del()" href="{:U(GROUP_NAME . '/Product/productDelete', array('productId' => $householdDataVo['productId']))}" title="产品删除"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
-					</tr>
-					</volist>
+					<?php if(is_array($householdData)): $i = 0; $__LIST__ = $householdData;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$householdDataVo): $mod = ($i % 2 );++$i;?><tr class="text-c va-m">
+						<td><?php echo ($householdDataVo["productName"]); ?></td>
+						<td><a href="<?php echo U(GROUP_NAME . '/Product/imageUploadPage', array('productId' => $householdDataVo['productId']));?>" title="点击修改图片"><img style="width: 50px" src="<?php echo ($householdDataVo["productImage"]); ?>"/></a></td>
+						<td><?php echo ($householdDataVo["productDetail"]); ?></td>
+						<td><?php echo ($householdDataVo["productPrice"]); ?></td>
+						<td><a style="text-decoration:none" class="ml-5" href="<?php echo U(GROUP_NAME . '/Product/productEditPage', array('productId' => $householdDataVo['productId']));?>" title="产品编辑"><i class="Hui-iconfont">&#xe6df;</i></a> <a style="text-decoration:none" class="ml-5" onClick="return article_del()" href="<?php echo U(GROUP_NAME . '/Product/productDelete', array('productId' => $householdDataVo['productId']));?>" title="产品删除"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+					</tr><?php endforeach; endif; else: echo "" ;endif; ?>
 				</tbody>
 			</table>
 		</div><br/>
-		<div>　{$page}</div>
+		<div>　<?php echo ($page); ?></div>
 	</div>
 </div>
 <script type="text/javascript" src="__PUBLIC__/lib/jquery/1.9.1/jquery.min.js"></script> 
