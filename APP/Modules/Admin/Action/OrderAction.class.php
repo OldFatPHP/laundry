@@ -317,5 +317,42 @@ class OrderAction extends CommonAction{
         $this->orderData = $orderData;
         $this->display();
     }
+
+    /**
+     * 需要发票订单页面显示
+     */
+    public function needInvoicePage () {
+        $where['orderInvoice'] = 1;
+        $where['orderDelete'] = 1;
+        $page = paging('order', $where, 5);
+        $show = $page -> show();
+        $limit = $page->firstRow.",".$page->listRows;
+        $orderData = M('order') -> where($where) -> limit($limit) -> order('orderId desc') -> select();
+        $this->assign('page', $show);
+        $this->assign('orderData', $orderData);
+        $this->display();
+    }
+
+    /**
+     * 已开发票按钮方法，将需要发票字段状态置0，表示确认已开发票
+     */
+    public function invoiced () {
+        $where['orderId'] = I('orderId');
+        $map['orderInvoice'] = 0;
+        $res = M('order')->where($where)->save($map);
+        if ($res) {
+            $where['orderInvoice'] = 1;
+            $where['orderDelete'] = 1;
+            $page = paging('order', $where, 5);
+            $show = $page -> show();
+            $limit = $page->firstRow.",".$page->listRows;
+            $orderData = M('order') -> where($where) -> limit($limit) -> order('orderId desc') -> select();
+            $this->assign('page', $show);
+            $this->assign('orderData', $orderData);
+            $this->redirect('needInvoicePage');
+        }else {
+            $this->error('操作异常，请重新操作...');
+        }
+    }
 }
 ?>

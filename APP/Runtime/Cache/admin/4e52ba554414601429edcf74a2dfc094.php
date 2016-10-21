@@ -1,4 +1,4 @@
-﻿<!DOCTYPE HTML>
+<?php if (!defined('THINK_PATH')) exit();?>﻿<!DOCTYPE HTML>
 <html>
 <head>
 <meta charset="utf-8">
@@ -54,21 +54,17 @@
 					</tr>
 				</thead>
 				<tbody>
-				<foreach name="comment" item="vo">
-					<tr class="text-c va-m">
-						<td>{$vo.commentOrderId}</td>
-						<if condition="$vo['contentEvaluation'] eq 1">
-							<td style="color: green">【好评】</td>
-							<else/>
-							<td style="color: red">【差评】</td>
-						</if>
-						<td>{$vo.commentContent}</td>
-						<td class="td-manage"><a href="{:U('commentDelete',array('id' => $vo['commentOrderId']))}" class="btn btn-sm btn-danger" onClick="return rec()">删除</a></td>
-					</tr>
-				</foreach>
+				<?php if(is_array($comment)): foreach($comment as $key=>$vo): ?><tr class="text-c va-m">
+						<td><?php echo ($vo["commentOrderId"]); ?></td>
+						<?php if($vo['contentEvaluation'] == 1): ?><td style="color: green">【好评】</td>
+							<?php else: ?>
+							<td style="color: red">【差评】</td><?php endif; ?>
+						<td><?php echo ($vo["commentContent"]); ?></td>
+						<td class="td-manage"><a href="<?php echo U('commentDelete',array('id' => $vo['commentOrderId']));?>" class="btn btn-sm btn-danger" onClick="return rec()">删除</a></td>
+					</tr><?php endforeach; endif; ?>
 				</tbody>
 			</table>
-			<div class="result page">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$page}</div>
+			<div class="result page">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo ($page); ?></div>
 		</div>
 	</div>
 </div>

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE HTML>
+<?php if (!defined('THINK_PATH')) exit();?>﻿<!DOCTYPE HTML>
 <html>
 <head>
 <meta charset="utf-8">
@@ -8,7 +8,7 @@
 <meta http-equiv="Cache-Control" content="no-siteapp" />
  <script type="text/javascript">
         function rec(){
-          var mymessage=confirm("你确定删除吗？");
+          var mymessage=confirm("你确定已开发票了吗？");
           if(mymessage==true)
           {
             return true;
@@ -42,33 +42,33 @@
 	</ul>
 </div> -->
 <div style="margin-left:10;">
-	<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 评论及反馈管理 <span class="c-gray en">&gt;</span> 评论列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+	<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 维权情况管理 <span class="c-gray en">&gt;</span> 需要开发票的订单 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 		<div class="mt-20">
 			<table class="table table-border table-bordered table-bg table-hover table-sort">
 				<thead>
 					<tr class="text-c">
-						<th width="100">订单号</th>
-						<th width="80">好/差评</th>
-						<th>评论内容</th>
+						<th width="60">订单号</th>
+						<th width="80">顾客姓名</th>
+						<th width="80">联系电话</th>
+						<th>订单地址</th>
+						<th width="120">下单时间</th>
+						<th width="50">订单实际价格</th>
 						<th width="50">操作</th>
 					</tr>
 				</thead>
 				<tbody>
-				<foreach name="comment" item="vo">
-					<tr class="text-c va-m">
-						<td>{$vo.commentOrderId}</td>
-						<if condition="$vo['contentEvaluation'] eq 1">
-							<td style="color: green">【好评】</td>
-							<else/>
-							<td style="color: red">【差评】</td>
-						</if>
-						<td>{$vo.commentContent}</td>
-						<td class="td-manage"><a href="{:U('commentDelete',array('id' => $vo['commentOrderId']))}" class="btn btn-sm btn-danger" onClick="return rec()">删除</a></td>
-					</tr>
-				</foreach>
+				<?php if(is_array($orderData)): $i = 0; $__LIST__ = $orderData;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$orderDataVo): $mod = ($i % 2 );++$i;?><tr class="text-c va-m">
+						<td><?php echo ($orderDataVo["orderId"]); ?></td>
+						<td><?php echo ($orderDataVo["orderName"]); ?></td>
+						<td><?php echo ($orderDataVo["orderPhone"]); ?></td>
+						<td><?php echo ($orderDataVo["orderAddressDetail"]); ?></td>
+						<td><?php echo ($orderDataVo["orderTime"]); ?></td>
+						<td><?php echo ($orderDataVo["orderPrice"]); ?></td>
+						<td class="td-manage"><a href="<?php echo U(GROUP_NAME . '/Order/invoiced',array('orderId' => $orderDataVo['orderId']));?>" class="btn btn-sm btn-danger" onClick="return rec()">已开发票</a></td>
+					</tr><?php endforeach; endif; else: echo "" ;endif; ?>
 				</tbody>
 			</table>
-			<div class="result page">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$page}</div>
+			<div class="result page">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo ($page); ?></div>
 		</div>
 	</div>
 </div>
