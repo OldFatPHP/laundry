@@ -38,6 +38,12 @@
 			</div>
 		</div>
 		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>负责人：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="" placeholder="账号" id="adminPrincipal" name="adminPrincipal" required>
+			</div>
+		</div>
+		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>密码：</label>
 			<div class="formControls col-xs-8 col-sm-9">
 				<input type="password" class="input-text" value="" placeholder="密码" id="adminPassword" name="adminPassword" required>
@@ -47,6 +53,12 @@
 			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>所属地区：</label>
 			<div class="formControls col-xs-8 col-sm-9">
 				<input type="text" class="input-text" value="" placeholder="所属地区" id="adminAddress" name="adminAddress" required>
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>所属分店地址：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="" 所属分店地址="adminAddDetail" id="adminAddDetail" name="adminAddDetail" required>
 			</div>
 		</div>
 		<div class="row cl">

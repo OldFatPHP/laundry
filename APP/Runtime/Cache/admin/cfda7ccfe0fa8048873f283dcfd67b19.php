@@ -44,18 +44,22 @@
 			<table class="table table-border table-bordered table-bg table-hover table-sort">
 				<thead>
 					<tr class="text-c">
-						<th width="100">序号</th>
-						<th width="200">账号</th>
-						<th>地区</th>
+						<th width="50">序号</th>
+						<th width="80">账号</th>
+						<th width="80">负责人</th>
+						<th width="80">地区</th>
+						<th>详细地址</th>
 						<th width="120">创建时间</th>
-						<th width="100">操作</th>
+						<th width="80">操作</th>
 					</tr>
 				</thead>
 				<tbody>
 					<?php if(is_array($adminData)): $i = 0; $__LIST__ = $adminData;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$adminDataVo): $mod = ($i % 2 );++$i;?><tr class="text-c va-m">
 						<td><?php echo ($adminDataVo["adminId"]); ?></td>
 						<td><?php echo ($adminDataVo["adminName"]); ?></td>
+						<td><?php echo ($adminDataVo["adminPrincipal"]); ?></td>
 						<td><?php echo ($adminDataVo["adminAddress"]); ?></td>
+						<td><?php echo ($adminDataVo["adminAddDetail"]); ?></td>
 						<td><?php echo ($adminDataVo["adminCreateTime"]); ?></td>
 						<td><a style="text-decoration:none" class="ml-5" href="<?php echo U(GROUP_NAME . '/System/adminEditPage', array('adminId' => $adminDataVo['adminId']));?>" title="信息编辑"><i class="Hui-iconfont">&#xe6df;</i></a> <a style="text-decoration:none" class="ml-5" onClick="return article_del()" href="<?php echo U(GROUP_NAME . '/System/adminDelete', array('adminId' => $adminDataVo['adminId']));?>" title="删除管理员"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
 					</tr><?php endforeach; endif; else: echo "" ;endif; ?>

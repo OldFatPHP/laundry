@@ -59,7 +59,7 @@
         public function adminAdd () {
             $adminData = $_POST;
             $this->checkAdminName($adminData['adminName']);
-            $this->checkAdminAddress($adminData['adminAddress']);
+            //$this->checkAdminAddress($adminData['adminAddress']);
             $adminData['adminCreateTime'] = date('Y-m-d H:i:s');
             $res = M('admin')->add($adminData);
             if ($res) {
@@ -88,7 +88,7 @@
          * @param $adminAddress
          * 检查地区是否已经有账号
          */
-        private function checkAdminAddress ($adminAddress) {
+        /*private function checkAdminAddress ($adminAddress) {
             $where['adminAddress'] = $adminAddress;
             $where['adminDelete'] = 1;
             $res = M('admin')->where($where)->select();
@@ -97,7 +97,7 @@
             }else {
                 return true;
             }
-        }
+        }*/
 
         public function adminDelete () {
             $where['adminId'] = I('adminId');
